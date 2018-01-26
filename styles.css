@@ -1,5 +1,5 @@
 .ma__iframe__container js-ma-responsive-iframe, .ma__iframe__container {
-	background-color:white;
+	background-color:white !important;
 }
 
 hr {
