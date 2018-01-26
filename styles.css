@@ -1,0 +1,64 @@
+.ma__iframe__container js-ma-responsive-iframe {
+	background-color:white;
+}
+
+hr {
+		width:50%;
+	}
+	
+	ol {
+		margin-top:1em;
+	}
+	h4 {
+		margin:0em;
+		margin-bottom:1em;
+	}
+	
+	input {
+		border:1px solid gray;
+		font-family:inherit;
+	}
+	
+	option, select {
+	font-family:inherit;
+		height:1.8em;
+	}
+	
+	#checkboxAgree {
+	vertical-align: baseline;
+	}
+	
+	.checkbox, .checkbox strong, .radiobutton {
+		display:inline-block;
+		vertical-align:top;
+	}
+	
+	li {
+		margin-top:.5em;
+
+	}
+	
+.style1 {
+	color: #FF0000;
+}
+
+.style6 {
+	font-weight: bold;
+	color: #FF0000;
+	text-align: center;
+}
+.style13 {
+	font-weight: bold;
+}
+
+.style15 {
+	color: #FFFFFF;
+}
+.style16 {
+	font-weight: bold;
+}
+
+.disclaimer {
+		font-style:italic;
+		font-size:.75em;
+}
