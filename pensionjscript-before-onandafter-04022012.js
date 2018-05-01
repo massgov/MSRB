@@ -150,6 +150,23 @@ function focusField(target)
 	//8) OPTIONAL: Option C, 1)select calculate by Date of Birth or 2)select by Age and month
 	//Age of your retirement date will be (Automatic calculated)
     **/
+	
+  /** 5/1/2018 updates
+  * Move 6) become 4)
+  * Combine both before, on and after April 2, 2012 formulars into one Javacripts file
+  * add new requrement desgin code 1) Enter your date of Enter Service Start date (mm/dd/yyyy) *
+
+	//1) Enter your date of Enter Service Start date (mm/dd/yyyy) *
+	//2) Enter your date of birth (mm/dd/yyyy) *
+	//3) Enter your projected date of retirement (mm/dd/yyyy) *
+	//4) Enter your estimated total number of years of creditable service,
+	//5) Select a group number 1, 2 or 4, default to group number 1*
+	//6) Are you a military veteran?* 
+	//7) Enter your estimated average three or five highest consecutive years of salary 
+	//8) OPTIONAL: Option C, 1)select calculate by Date of Birth or 2)select by Age and month
+	//Age of your retirement date will be (Automatic calculated)
+    **/
+
 
 //for Option A and C factor 
 //1st set of calculator for hired before 04/02/2012
@@ -1398,7 +1415,7 @@ function validateAgeFactor(field) {
 function validateYRAverageSalary(field){
  var input = field.value;
     if ((!input == null || !input.length == 0)){
-        if (!checkNumber(document.frmCal.YRAverageSalary, 1, 9000000, "7. Enter your highest 3-year salary average")) //$9,000,000
+        if (!checkNumber(document.frmCal.YRAverageSalary, 1, 9000000, "7. Enter your highest average salary")) //$9,000,000
         {
         document.frmCal.YRAverageSalary.value = "Invalid";		
         }
