@@ -266,19 +266,6 @@ Please  note, the following shows the eligibility criteria for these two sets of
         <div align="left" class="style14"></div>
       </li>
       </li>
-      <li><span class="style14">Select a group number 1, 2 or 4</span>
-        <select title="Select a group number 1,2 or 4" name="groupmember" id="groupmember" disabled onChange="computeForm(militaryveteran.value)">
-          <option value="1" selected>Group Number 1</option>
-          <option value="2">Group Number 2</option>
-          <option value="4">Group Number 4</option>
-        </select>
-      </li>
-      <li><span class="style14">Are you a military veteran?</span>
-        <select title="Are you a military veteran?" name="militaryveteran" id="militaryveteran" disabled onChange="computeForm(this)">
-          <option value="No" selected>Non-Veteran</option>
-          <option value="Yes">Veteran</option>
-        </select>
-      </li>
       <li><span class="style14"><strong>Select </strong>your estimated total number of years of creditable service, including any purchased service or may be eligible to purchase, as of your projected date of retirement (for example, 10 years and 2 months)</span>
         <select title="Select your estimated year of services" name="YRofServices" id="YRofServices" disabled onChange="validateYRofServices(this, militaryveteran.value, yrserMM.value)" size="1">
           <option value="10" selected>10 Years of Services</option>
@@ -333,6 +320,20 @@ Please  note, the following shows the eligibility criteria for these two sets of
           <option value="11">11 Months</option>
         </select>
       </li>
+      <li><span class="style14">Select a group number 1, 2 or 4</span>
+        <select title="Select a group number 1,2 or 4" name="groupmember" id="groupmember" disabled onChange="computeForm(militaryveteran.value)">
+          <option value="1" selected>Group Number 1</option>
+          <option value="2">Group Number 2</option>
+          <option value="4">Group Number 4</option>
+        </select>
+      </li>
+      <li><span class="style14">Are you a military veteran?</span>
+        <select title="Are you a military veteran?" name="militaryveteran" id="militaryveteran" disabled onChange="computeForm(this)">
+          <option value="No" selected>Non-Veteran</option>
+          <option value="Yes">Veteran</option>
+        </select>
+      </li>
+      
       <li><span class="style14"><strong>Enter</strong> the estimated average of your<strong> </strong> annual regular compensation.  (omit $ sign, commas; for example 32000 or 102900.98) $</span>
         <input title="Enter your estimated average three highest consecutive years salary" type="TEXT" name="YRAverageSalary" id="YRAverageSalary" disabled onChange="validateYRAverageSalary(this),computeForm(yaC6690.value, BenefAgeYY.value, BenefAgeMM.value, militaryveteran.value, AmountOptionA.value, YRAverageSalary.value)" size="10" maxlength="10" align="right">
       *</li>
@@ -518,7 +519,7 @@ Please  note, the following shows the eligibility criteria for these two sets of
         <div align="left" class="style14"></div>
         <div align="center"></div>
       </li>
-      <div align="left"><b>
+      <div align="left"><br>
         <input type="button" value="Compute">
         <input type="reset" value="Reset">
         </b></div>
