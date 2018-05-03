@@ -1,4 +1,4 @@
-<!-- hide this script tag's contents from old browsers
+// hide this script tag's contents from old browsers
 
 //check if the control can accept focus 
 window.onload = initFormFieldFocus;
