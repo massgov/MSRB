@@ -137,7 +137,7 @@ function focusField(target)
  
  /** 3/19/2018 updates
   * 
-  * Combine both before, on and after April 2, 2012 formulars into one Javacripts file
+  * Combine both before, on and after April 2, 2012 formulas into one Javacripts file
   * add new requrement desgin code 1) Enter your date of Enter Service Start date (mm/dd/yyyy) *
 
 	//1) Enter your date of Enter Service Start date (mm/dd/yyyy) *
@@ -153,7 +153,7 @@ function focusField(target)
 	
   /** 5/1/2018 updates
   * Move 6) become 4)
-  * Combine both before, on and after April 2, 2012 formulars into one Javacripts file
+  * Combine both before, on and after April 2, 2012 formulas into one Javacripts file
   * add new requrement desgin code 1) Enter your date of Enter Service Start date (mm/dd/yyyy) *
 
 	//1) Enter your date of Enter Service Start date (mm/dd/yyyy) *
@@ -595,21 +595,21 @@ function validateYRofServices(field, varVeteran) {
  var varMV = varVeteran
 //= document.frmCal.militaryveteran.value;
 		 if ((!input == null || !input.length == 0) && (varMV == "Yes")){
-				if (!checkNumber(document.frmCal.YRofServices, 10, 45, "5. Enter your years of service"))
+				if (!checkNumber(document.frmCal.YRofServices, 10, 45, " Enter your years of service"))
 					{
 					document.frmCal.YRofServices.value = "Invalid";
 					//document.write("584 varMV" + varMV);
 					//alert("584 YES YRofServices 10, 45, 5. Enter your years of service  function validateYRofServices1st(field, varVeteran)");		 
 					}
 		}else if ((!input == null || !input.length == 0) && (varMV == "No")){
-				if (!checkNumber(document.frmCal.YRofServices, 10, 45, "5. Enter your years of service"))
+				if (!checkNumber(document.frmCal.YRofServices, 10, 45, ". Enter your years of service"))
 					{
 					document.frmCal.YRofServices.value = "Invalid";
 					//document.write("591 varMV" + varMV);	 
 					//alert("590 NO YRofServices 10, 45, 5. Enter your years of service  function validateYRofServices1st(field, varVeteran)");		 
 					}
 		}else{
-				alert("6. Enter your years of service is a required field")		
+				alert("Enter your years of service is a required field")		
 		}//if ((!input == null || !input.length == 0) && (varMV == "Yes"))
   	field.focus();	
     computeForm();
@@ -779,8 +779,7 @@ function f_cal_beneficiaryDOB1st(dp, mp, yp, isJulian, var_ybBeny, var_mbBeny, v
 				//if ((var_yaBeny < varzero) || (( var_yaBeny == "0") && (var_maBeny <= "0"))) {							
 				if ((var_yaBeny <= varzero) && (var_maBeny <= "0") || (var_yaBeny < varzero)) {							
 					//alert(" var_yaBeny is: "  + var_yaBeny + " , var_maBeny: " + var_maBeny)
-					alert("Beneficiary's date of birth cannot be later than your projected retirement date. ");
-					
+					//beneficiary's age can not be zero
 					blankBeneficiaryDOB();
 					
 				}else {
@@ -947,8 +946,9 @@ function f_calOptionA2nd(OptA, varGroup, varVeteran, varYRofS){
 		document.frmCal.yaA.value = 67;//Change on 6/19/2017
 		document.frmCal.grpmember.value = varGroupmember;
 	}else if (ya < 36){ //less than 36
-		blankOptionAvalue();		
-		alert("Sorry, your age entered is less than the minimum age of 36. Please check the date or the Benefit Guide for more details.");
+		blankOptionAvalue();
+		//alert("Sorry, your age entered is less than the minimum age of 36. Please check the date or the Benefit Guide for more details.");
+		alert("The calculated age is less than the minimum age (36 years old). Please revise your entered date(s) and check the benefit guide for more details.");
 	}else{ // between age 36 and 67			
 			//alert("ARRY[ya] " + ARRY[ya])
 			if (isNaN(ya)){
@@ -1331,7 +1331,8 @@ function inRange(inputStr, lo, hi) {
 
 function checkNumber(input, min, max, msg)
 {   
-	msg = msg + " field has invalid data: " + input.value;
+	//msg = msg + " field has invalid data: " + input.value;
+	msg = msg + " ' " + input.value  + " ' " ;
     var str = input.value;	
     for (var i = 0; i < str.length; i++) {
         var ch = str.substring(i, i + 1)
@@ -1415,7 +1416,9 @@ function validateAgeFactor(field) {
 function validateYRAverageSalary(field){
  var input = field.value;
     if ((!input == null || !input.length == 0)){
-        if (!checkNumber(document.frmCal.YRAverageSalary, 1, 9000000, "7. Enter your highest average salary")) //$9,000,000
+//        if (!checkNumber(document.frmCal.YRAverageSalary, 1, 9000000, "7. The average salary you entered is greater than the allowable maximum. Please enter a valid salary estimate ")) //$9,000,000
+        if (!checkNumber(document.frmCal.YRAverageSalary, 1, 9000000, "7. The average salary you entered must be in numeric format with no $ or commas. ")) //$9,000,000
+
         {
         document.frmCal.YRAverageSalary.value = "Invalid";		
         }
@@ -1430,7 +1433,7 @@ function validateYRAverageSalary(field){
 function validateisYearyssd(field){
  var input = field.value;
     if ((!input == null || !input.length == 0)){
-        if (!checkNumber(document.frmCal.yssd, 1900, 9999, "1. your year of service start (year)"))//range 1900 - 9999 years
+        if (!checkNumber(document.frmCal.yssd, 1900, 9999, "1. Please enter your service start year in YYYY format "))//range 1900 - 9999 years
         {
         document.frmCal.yssd.value = "Invalid";					
         }
@@ -1445,7 +1448,7 @@ function validateisYearyssd(field){
 function validateisYear(field){
  var input = field.value;
     if ((!input == null || !input.length == 0)){
-        if (!checkNumber(document.frmCal.yb, 1900, 9999, "2. your date of birth (year)"))//range 1900 - 9999 years
+        if (!checkNumber(document.frmCal.yb, 1900, 9999, "2. Please enter your birth year in YYYY format "))//range 1900 - 9999 years
         {
         document.frmCal.yb.value = "Invalid";					
         }
@@ -1459,7 +1462,7 @@ function validateisYear(field){
 function validateisYearyp(field){
  var input = field.value;
 	if ((!input == null || !input.length == 0)){	
-		if (!checkNumber(document.frmCal.yp, 1900, 9999, "3. Your projected date of retirement (year)"))//range 1900 - 9999 years
+		if (!checkNumber(document.frmCal.yp, 1900, 9999, "3. Please enter your projected year of retirement in YYYY format "))//range 1900 - 9999 years
 		{
 			document.frmCal.yp.value = "Invalid";		
 		}
@@ -1473,7 +1476,7 @@ function validateisYearyp(field){
 function validateisYearybBeny(field){
  var input = field.value;
 	if ((!input == null || !input.length == 0)){	
-		if (!checkNumber(document.frmCal.ybBeny, 1900, 9999, "Your beneficiary's age (year)"))//range 1900 - 9999 years
+		if (!checkNumber(document.frmCal.ybBeny, 1900, 9999, "Please enter your beneficiary's age year in YYYY format "))//range 1900 - 9999 years
 		{
 			document.frmCal.ybBeny.value = "Invalid";		
 		}
@@ -1880,7 +1883,8 @@ function computeForm(form) {
 				document.getElementById("displayreminder").innerHTML = document.frmCal.reminder.value; //display back to the <p>displayreminder</p>
 				document.frmCal.enterservicedateddisplayonly.value = displayenterservicedate; //send the value to the form
 				if (boolean3 == true){ //enterservicedate <= dobdate
-				alert("Note: Your service start date must be greater than your date of birth. Please correct the service start date to continue.");
+				//alert("Note: Your service start date must be greater than your date of birth. Please correct the service start date to continue.");
+				alert("Your service start date must occur after your date of birth. Please revise your entered date of birth or service start date.");
 				}
 				//alert("1850 boolean1 == true");
 		}else{  
@@ -1892,7 +1896,8 @@ function computeForm(form) {
 				document.getElementById("displayreminder").innerHTML = document.frmCal.reminder.value; //display back to the <p></p>
 				document.frmCal.enterservicedateddisplayonly.value = displayenterservicedate; //try to send the value to the form
 				if (boolean3 == true){
-				alert("Note: Your service start date must be greater than your date of birth. Please correct the service start date to continue.");
+				//alert("Note: Your service start date must be greater than your date of birth. Please correct the service start date to continue.");
+				alert("Your service start date must occur after your date of birth. Please revise your entered date of birth or service start date.");
 				}
 				}//if (boolean2 == true)
 		}//if (boolean1 == true)
