@@ -95,8 +95,8 @@ function focusField(target)
 
 
 // © 2018 Treasury Computer Services All Rights Reserved
-// pensionjscripts.js 
-// RetirementEstimator.html
+// pensionjscript-before-onandafter-04022012.js
+// estimate.html
 // 
 // 10-26-2006 @author WJL CSVC
 // http://www.mass.gov/treasury/retcalbene.htm
@@ -310,7 +310,7 @@ aryC[90]="900.33060.33070.33080.33090.331 0.33120.33140.33160.33180.332 0.33230.
 //CreateMultiArrayC_before_04022012() //must keep this because this is for hired before 04/02/2012
 
 //2nd set of calculator for hired on and after 04/02/2012
-//CreateMultiArrayC_onandafter_04022012() //must keep this because this is for hired on and after 04/02/2012
+//CreateMultiArrayC_onandafter_04022012(); //must keep this because this is for hired on and after 04/02/2012
 //3/19/2018 add by WJL
 //for Option A and C factor 
 //2nd set of calculator for hired on and after 04/02/2012
@@ -585,7 +585,7 @@ aryC[90]="900.33030.33030.33030.33040.33050.33060.33070.33080.33090.33100.33120.
 // last update 6-15-2017
 // for option C age factor array	
 }//End of function CreateMultiArrayC_onandafter_04022012(){
-//CreateMultiArrayC_onandafter_04022012() //must keep this because this is for hired on and after 04/02/2012
+//CreateMultiArrayC_onandafter_04022012(); //must keep this because this is for hired on and after 04/02/2012
 
 //for 1st and 2nd calculator
 //validate Year or service has to be minimum 10 years of services with age 45
@@ -640,7 +640,7 @@ function f_calOptionA1st(OptA, varGroup, varVeteran){
 		document.frmCal.grpmember.value = varGroupmember;
 	}else if (ya < 36){ //less than 36
 		blankOptionAvalue();		
-		alert("Sorry, your age entered is less than the minumin age of 36 or you have entered invalid projected retirement date. Please check the dates or the benefit guide for more details.");
+		alert("The calculated age is less than the minimum age (36 years old). Please revise your entered date(s) and check the benefit guide for more details.");
 	}else{ // between age 36 and 65				
 			//alert("ARRY[ya] " + ARRY[ya])
 			if (isNaN(ya)){
@@ -947,7 +947,6 @@ function f_calOptionA2nd(OptA, varGroup, varVeteran, varYRofS){
 		document.frmCal.grpmember.value = varGroupmember;
 	}else if (ya < 36){ //less than 36
 		blankOptionAvalue();
-		//alert("Sorry, your age entered is less than the minimum age of 36. Please check the date or the Benefit Guide for more details.");
 		alert("The calculated age is less than the minimum age (36 years old). Please revise your entered date(s) and check the benefit guide for more details.");
 	}else{ // between age 36 and 67			
 			//alert("ARRY[ya] " + ARRY[ya])
@@ -1785,11 +1784,11 @@ function fdisable(OnOff) { //disable or enable radiobutton
 
 //3/19/2018
 //Call the 1st set of function arrays
-CreateMultiArrayC_before_04022012() //must keep this for 1st set of calculator
+CreateMultiArrayC_before_04022012(); //must keep this for 1st set of calculator
 
 //3/19/2018
 //Call the 2nd set of function arrays
-CreateMultiArrayC_onandafter_04022012() //must keep this for 2nd set of calculator
+CreateMultiArrayC_onandafter_04022012(); //must keep this for 2nd set of calculator
 
 //function computeForm(form) { ===============================================================
 function computeForm(form) {
@@ -1889,7 +1888,7 @@ function computeForm(form) {
 				//alert("1850 boolean1 == true");
 		}else{  
 		   		if (boolean2 == true) { //hired on and after 04/02/2012			
-				CreateMultiArrayC_onandafter_04022012() //Call the 2nd set of function arrays, must keep this for 2nd set of calculator
+				CreateMultiArrayC_onandafter_04022012(); //Call the 2nd set of function arrays, must keep this for 2nd set of calculator
 				document.frmCal.vartrueorfalse.value = vartrue2; //try to send the value to the form use2ndset
 				///document.getElementById("displayvartrueorfalse").innerHTML = document.frmCal.vartrueorfalse.value; //display back to the <p></p>
 				document.frmCal.reminder.value = varremender2; //try to send the value to the form
@@ -1996,7 +1995,7 @@ function computeForm(form) {
 	}else{
 		//for 2nd set of calculator
 	   if (boolean2 == true) {
-		CreateMultiArrayC_onandafter_04022012() //must keep this for 2nd set of calculator
+		CreateMultiArrayC_onandafter_04022012(); //must keep this for 2nd set of calculator
 		if ((YRofS >=50) && (varyrserMM >= 1)) {
 		varyrserMM = 0;		
 		document.frmCal.yrserMM.value = varyrserMM;
@@ -2088,7 +2087,7 @@ function computeForm(form) {
 		}else{  
 		   if (boolean2 == true) {
 			//Call the 2nd set of function arrays
-			CreateMultiArrayC_onandafter_04022012() //must keep this for 2nd set of calculator
+			CreateMultiArrayC_onandafter_04022012(); //must keep this for 2nd set of calculator
   		    f_calOptionA2nd(OptA, varGroup, varVeteran, varYRofS); // Option A factor	
 		    }
 		}
@@ -2107,7 +2106,7 @@ function computeForm(form) {
 		}else{  
 		   if (boolean2 == true) {
 			//Call the 2nd set of function arrays
-			CreateMultiArrayC_onandafter_04022012() //must keep this for 2nd set of calculator
+			CreateMultiArrayC_onandafter_04022012(); //must keep this for 2nd set of calculator
   		    f_calOptionC2nd(OptC, varGroup, OptC_ma, OptC_OptionA_yaA); // Option C factor
 			//alert("2153.f_calOptionC2nd(OptC, varGroup, OptC_ma, OptC_OptionA_yaA)");
 		    }
@@ -2171,7 +2170,7 @@ function computeForm(form) {
 					}else{  
 					   if (boolean2 == true) {
 						//Call the 2nd set of function arrays
-						CreateMultiArrayC_onandafter_04022012() //must keep this for 2nd set of calculator
+						CreateMultiArrayC_onandafter_04022012(); //must keep this for 2nd set of calculator
 						f_cal_beneficiaryDOB2nd(dp, mp, yp, isJulian, var_ybBeny, var_mbBeny, var_dbBeny, OptC_OptionA_yaA, rowCvar_yaC6690);
 						//alert("2216. f_cal_beneficiaryDOB2nd(dp, mp, yp, isJulian, var_ybBeny, var_mbBeny, var_dbBeny, OptC_OptionA_yaA, rowCvar_yaC6690);");
 						}
@@ -2193,7 +2192,7 @@ function computeForm(form) {
 						}else{  
 						   if (boolean2 == true) {//Call the 2nd set of function arrays
 							//3/19/2018			
-							CreateMultiArrayC_onandafter_04022012() //must keep this for 2nd set of calculator
+							CreateMultiArrayC_onandafter_04022012(); //must keep this for 2nd set of calculator
 							getArrayOptionC2nd(rowCvar_yaC6690, colCvar_BenefAgeYY, colCMMvar_BenefAgeMM, OptC_OptionA_yaA);
 							//alert("2241. getArrayOptionC2nd(rowCvar_yaC6690, colCvar_BenefAgeYY, colCMMvar_BenefAgeMM, OptC_OptionA_yaA);");
 						  }//if (boolean1 == true) {
