@@ -152,19 +152,24 @@ function focusField(target)
     **/
 	
   /** 5/1/2018 updates
-  * Move 6) become 4)
-  * Combine both before, on and after April 2, 2012 formulas into one Javacripts file
-  * add new requrement desgin code 1) Enter your date of Enter Service Start date (mm/dd/yyyy) *
+   * 
+   * Add new question:
+   *    1) Enter your date of Enter Service Start date (mm/dd/yyyy) *
+   * Move question #6) creditable service below question #3) projected date:  
+   *    4) Enter your estimated total number of years of creditable service. 
+   * Combine both formulas into one Javacripts file for retiree who hired before, on and after April 2, 2012. 
+   * Option B benefit result
+   *    Add new requrement desgin code for new question 
 
 	//1) Enter your date of Enter Service Start date (mm/dd/yyyy) *
 	//2) Enter your date of birth (mm/dd/yyyy) *
 	//3) Enter your projected date of retirement (mm/dd/yyyy) *
-	//4) Enter your estimated total number of years of creditable service,
+	//4) Enter your estimated total number of years of creditable service.
 	//5) Select a group number 1, 2 or 4, default to group number 1*
 	//6) Are you a military veteran?* 
 	//7) Enter your estimated average three or five highest consecutive years of salary 
 	//8) OPTIONAL: Option C, 1)select calculate by Date of Birth or 2)select by Age and month
-	//Age of your retirement date will be (Automatic calculated)
+	//    Age of your retirement date will be (Automatic calculated)
     **/
 
 
@@ -899,8 +904,30 @@ function getArrayOptionC1st(rowCvar_yaC6690, colCvar_BenefAgeYY, colCMMvar_Benef
 					//aryC[55].substr(((1-1)*6)+2, 6) = aryC[55].substr(2, 6)
 					//age colC = age7 - 5 = 2
 					//aryC[55].substr(((2-1)*6)+2, 6) = aryC[55].substr(8, 6)
-					var benefAryCfactor = aryC[rowC].substr(((colC-1)*6)+2, 6); // ary[60].substr(((7-1)*6)+2, 6)= 0.8191  factor
-					//Ex. MultiArray[60].Beneficiaree(col=7) = at position 38 and takes 6 string = 0.8191	
+					
+					var benefAryCfactor = aryC[rowC].substr(((colC-1)*6)+2, 6); 
+					//Example 1: Member's Age = 60(rowC), Beneficiary's Age = 1(colC)  then Factor = aryC[60]="0.8166"		
+					//rowC = 60  is the retiree Member's age. Excel Row# 60		
+					//colC = 1   is the beneficiary's age. Excel column#  1		
+					//Table look up: Row is 60, Column = 1. Factor is =0.8166		
+							
+					//Example 1 of the fomulas:  var benefAryCfactor = ary[60].substr((1-1)*6+2,6) = 0.8166		
+					//(Option C beneficiary's table at array age 60).(select six string from position 2 which is = 0.8166 factor)		
+					//ary[60].substr(((1-1)*6)+2, 6)=  ary[60].substr(2, 6)  = 0.8166  factor		
+							
+					//Example 2: Member's Age = 60(rowC), Beneficiary's Age = 8(colC)  then Factor = 0.8196  factor		
+					//rowC = 60  is Retiree Member's age. Excel Row# 60		
+					//colC = 8   is Beneficiary's age. Excel column# 1		
+					//Table look up: Row is 60, Column = 8. Factor is = 0.8196		
+					//Example of the fomulas:  ary[60].substr((8-1)*6+2,6)		
+					//(Option C beneficiary's table at array age 60).(select six string from position 44 which is = 0.8196 factor)		
+					//ary[60].substr(((8-1)*6)+2, 6) = ary[60].substr(44, 6) = 0.8196		
+							
+					/**		
+					 * End of the Main formulas matrix		
+					 * for hired on and after 04-02-2012		
+					 ***/
+										
 					document.frmCal.myResultOptionCfator.value = benefAryCfactor;	//
 					//	var OptionATotal = document.frmCal.AmountOptionA.value; //Avg of 3 years salary
 					colC = (colC + 5)// for display	add 5 years back to the age for the actual age 6 + 5 = age 11 for benee					
@@ -1071,33 +1098,34 @@ function getArrayOptionC2nd(rowCvar_yaC6690, colCvar_BenefAgeYY, colCMMvar_Benef
 						// Change on 6-15-2017
 						//colC = (colC - 5) // the beneficiary's age start from age 6 instead of age 1 so colC(6) - 5 = age 1
 						
-						/**
+						/** 2nd set
 						 * Main formulas matrix
-						 * for hired on and after 04-02-2012
+						 * for hired before 04-02-2012
 						 ***/
 						 
 						var benefAryCfactor = aryC[rowC].substr(((colC-1)*6)+2, 6); //// Change on 6-15-2017
-						//Example 1: Member's Age = 60(rowC), Beneficiary's Age = 1(colC)  then Factor = 0.8152  factor
-						//rowC = 60  is the retiree Member's age. Excel Row# 60
-						//colC = 1   is the beneficiary's age. Excel column#  1
-						//Table look up: Row is 60, Column = 1. Factor is = 0.8152
-						
-						//Example 1 of the fomulas:  var benefAryCfactor = ary[60].substr((1-1)*6+2,6) = 0.8152
-						//(Option C beneficiary's table at array age 60).(select six string from position 2 which is = 0.8152 factor)								
-						//ary[60].substr(((1-1)*6)+2, 6)=  ary[60].substr(2, 6)  = 0.8152  factor
-													
-						//Example 2: Member's Age = 60(rowC), Beneficiary's Age = 8(colC)  then Factor = 0.8173  factor
-						//rowC = 60  is Retiree Member's age. Excel Row# 60
-						//colC = 8   is Beneficiary's age. Excel column# 1
-						//Table look up: Row is 60, Column = 8. Factor is = 0.8173
-						//Example of the fomulas:  ary[60].substr((8-1)*6+2,6)
-						//(Option C beneficiary's table at array age 60).(select six string from position 44 which is = 0.8173 factor)								
-						//ary[60].substr(((8-1)*6)+2, 6) = ary[60].substr(44, 6) = 0.8173
-							
-						/**
-						 * End of the Main formulas matrix
-						 * for hired on and after 04-02-2012
-						 ***/
+						//Example 1: Member's Age = 60(rowC), Beneficiary's Age = 1(colC)  then Factor = 0.8152  factor		
+						//rowC = 60  is the retiree Member's age. Excel Row# 60		
+						//colC = 1   is the beneficiary's age. Excel column#  1		
+						//Table look up: Row is 60, Column = 1. Factor is = 0.8152		
+								
+						//Example 1 of the fomulas:  var benefAryCfactor = ary[60].substr((1-1)*6+2,6) = 0.8152		
+						//(Option C beneficiary's table at array age 60).(select six string from position 2 which is = 0.8152 factor)		
+						//ary[60].substr(((1-1)*6)+2, 6)=  ary[60].substr(2, 6)  = 0.8152  factor		
+								
+						//Example 2: Member's Age = 60(rowC), Beneficiary's Age = 8(colC)  then Factor = 0.8173  factor		
+						//rowC = 60  is Retiree Member's age. Excel Row# 60		
+						//colC = 8   is Beneficiary's age. Excel column# 1		
+						//Table look up: Row is 60, Column = 8. Factor is = 0.8173		
+						//Example of the fomulas:  ary[60].substr((8-1)*6+2,6)		
+						//(Option C beneficiary's table at array age 60).(select six string from position 44 which is = 0.8173 factor)		
+						//ary[60].substr(((8-1)*6)+2, 6) = ary[60].substr(44, 6) = 0.8173		
+								
+						/**		
+						 * End of the Main formulas matrix		
+						 * for hired on and after 04-02-2012		
+						 ***/	
+
 	
 					document.frmCal.myResultOptionCfator.value = benefAryCfactor;	//
 					//	var OptionATotal = document.frmCal.AmountOptionA.value; //Avg of 3 years salary
