@@ -1,11 +1,13 @@
 <!DOCTYPE html> 
 <head> 
   <title>Massachusetts State Employeee Pension Estimator for both before, on and after April 2, 2012</title> 
-  <meta charset="UTF-8"> 
+  <meta charset="utf-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
   <link rel="stylesheet" href=	"https://s3.amazonaws.com/mayflower.digital.mass.gov/assets/css/base-theme-generated.css" media="all" /> 
   <link rel="stylesheet" href="https://s3.amazonaws.com/mayflower.digital.mass.gov/assets/css/index-generated.css" media="all" />  
+  
+  
   
 <script src="https://s3.amazonaws.com/mayflower.digital.mass.gov/assets/js/vendor/modernizr.js"></script> 
 <script language="JavaScript" type="text/javascript" src="pensionjscript-before-onandafter-04022012.js"></script>
@@ -45,6 +47,12 @@
 .style16 {
 	color: #FFFFFF;
 	font-weight: bold;
+}
+body,td,th {
+	font-family: Texta, Helvetica, Arial, sans-serif;
+}
+body {
+	background-color: #FFF;
 }
 -->
 </style>
@@ -395,7 +403,7 @@ Please  note, the following shows the eligibility criteria for these two sets of
         </div>
         <div align="left" class="style14"></div>
         <div align="left" class="style14"></div>
-        <span class="style14"><strong>or</strong></span>
+        <span class="style14"><strong>or</strong></span><br>
         <input name="R7q" type="radio" value="V2" onClick="fdisable(true)">
         <span class="style14"><em>Check here to calculate by Age </em></span>
         <div align="left" class="style14">Age
@@ -571,7 +579,7 @@ Please  note, the following shows the eligibility criteria for these two sets of
   <nav role="navigation">
     <p>Option A.</p>
     <ol>
-      <li>Annual Allowance: <span class="style14"> &nbsp;$
+      <li>Annual Allowance: <span class="style14"> &nbsp;&nbsp;$
         <input title="Estimated Option A annual allowance" name="AmountOptionA" type="TEXT" id="AmountOptionA" size="10" maxlength="10" align="right" readonly disabled>
         </span></li><br>
       <li>Monthly Allowance:<span class="style14"> $
@@ -584,7 +592,7 @@ Please  note, the following shows the eligibility criteria for these two sets of
   <nav role="navigation">
     <p>Option B.</p>
     <ol>
-      <li>Annual Allowance: <span class="style14"> &nbsp;$
+      <li>Annual Allowance: <span class="style14"> &nbsp;&nbsp;$
         <input title="Estimated Option B annual allowance" name="txtOptionB" type="TEXT" id="txtOptionB" size="10" maxlength="10" align="right" readonly disabled>
         <input title="Estimated Option B annual allowance before veteran benefit text" name="txtOptionBbeforeVeteranBenf" type="hidden" id="txtOptionBbeforeVeteranBenf" size="15" maxlength="10" align="right" readonly>
         <input title="Estimated Option B annual allowance before veteran benefit percentage hidden" name="txtOptionBPercentage" type="hidden" id="txtOptionBPercentage" size="15" maxlength="10" align="right" readonly>
@@ -599,7 +607,7 @@ Please  note, the following shows the eligibility criteria for these two sets of
   <nav role="navigation">
     <p>Option C.</p>
     <ol>
-      <li>Annual Allowance: <span class="style14">&nbsp;$
+      <li>Annual Allowance: <span class="style14">&nbsp;&nbsp;$
         <input title="Estimated Option C annual allowance" type="text" name="myResultOptionC" id="myResultOptionC" onClick="computeForm(this); showInput();" size="10" maxlength="10" align="right" readonly disabled>
         <input title="Age for calculation Option C text" name="yaCfromYadisplay" type="hidden" id="yaCfromYadisplay" size="15" maxlength="10" align="right" readonly>
         <input title="Age for calculation Option C text" name="yaC" type="hidden" id="yaC" size="15" maxlength="10" align="right" readonly>
@@ -610,7 +618,7 @@ Please  note, the following shows the eligibility criteria for these two sets of
       <li>Monthly Allowance: <span class="style14">$
         <input title="Estimated Option C monthly allowance" type="text" name="myResultOptionCmonthly" id="myResultOptionCmonthly" onClick="computeForm(this)" size="10" maxlength="10" align="right" readonly disabled>
         </span></li><br>
-      <li>*Beneficiary Annual Allowance<span class="style14">: </span><span class="style14"> &nbsp;$
+      <li>*Beneficiary Annual Allowance<span class="style14">: </span><span class="style14"> &nbsp;&nbsp;$
         <input title="Two thirds of estimated Option C annual allowance" type="text" name="myResultOptionCTwoThirdYearly" id="myResultOptionCTwoThirdYearly" onClick="computeForm(this)" size="10" maxlength="10" align="right" readonly disabled>
         <input title="Beneficiary's age year text" type="hidden" id="yaBenydispay" name="yaBenydispay" onClick="computeForm(this)" size="4" maxlength="4" readonly align="right">
         <input title="Beneficiary's age text" type="hidden" name="OptCbenfAge" id="OptCbenfAge" onClick="computeForm(this)" size="15" maxlength="10" align="right" readonly>
