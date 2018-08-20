@@ -95,8 +95,8 @@ function focusField(target)
 
 
 // © 2018 Treasury Computer Services All Rights Reserved
-// pensionjscript-before-onandafter-04022012.js
-// estimate.html
+// pensionjscripts.js 
+// RetirementEstimator.html
 // 
 // 10-26-2006 @author WJL CSVC
 // http://www.mass.gov/treasury/retcalbene.htm
@@ -137,7 +137,7 @@ function focusField(target)
  
  /** 3/19/2018 updates
   * 
-  * Combine both before, on and after April 2, 2012 formulas into one Javacripts file
+  * Combine both before, on and after April 2, 2012 formulars into one Javacripts file
   * add new requrement desgin code 1) Enter your date of Enter Service Start date (mm/dd/yyyy) *
 
 	//1) Enter your date of Enter Service Start date (mm/dd/yyyy) *
@@ -150,28 +150,6 @@ function focusField(target)
 	//8) OPTIONAL: Option C, 1)select calculate by Date of Birth or 2)select by Age and month
 	//Age of your retirement date will be (Automatic calculated)
     **/
-	
-  /** 5/1/2018 updates
-   * 
-   * Add new question:
-   *    1) Enter your date of Enter Service Start date (mm/dd/yyyy) *
-   * Move question #6) creditable service below question #3) projected date:  
-   *    4) Enter your estimated total number of years of creditable service. 
-   * Combine both formulas into one Javacripts file for retiree who hired before, on and after April 2, 2012. 
-   * Option B benefit result
-   *    Add new requrement desgin code for new question 
-
-	//1) Enter your date of Enter Service Start date (mm/dd/yyyy) *
-	//2) Enter your date of birth (mm/dd/yyyy) *
-	//3) Enter your projected date of retirement (mm/dd/yyyy) *
-	//4) Enter your estimated total number of years of creditable service.
-	//5) Select a group number 1, 2 or 4, default to group number 1*
-	//6) Are you a military veteran?* 
-	//7) Enter your estimated average three or five highest consecutive years of salary 
-	//8) OPTIONAL: Option C, 1)select calculate by Date of Birth or 2)select by Age and month
-	//    Age of your retirement date will be (Automatic calculated)
-    **/
-
 
 //for Option A and C factor 
 //1st set of calculator for hired before 04/02/2012
@@ -315,7 +293,7 @@ aryC[90]="900.33060.33070.33080.33090.331 0.33120.33140.33160.33180.332 0.33230.
 //CreateMultiArrayC_before_04022012() //must keep this because this is for hired before 04/02/2012
 
 //2nd set of calculator for hired on and after 04/02/2012
-//CreateMultiArrayC_onandafter_04022012(); //must keep this because this is for hired on and after 04/02/2012
+//CreateMultiArrayC_onandafter_04022012() //must keep this because this is for hired on and after 04/02/2012
 //3/19/2018 add by WJL
 //for Option A and C factor 
 //2nd set of calculator for hired on and after 04/02/2012
@@ -590,7 +568,7 @@ aryC[90]="900.33030.33030.33030.33040.33050.33060.33070.33080.33090.33100.33120.
 // last update 6-15-2017
 // for option C age factor array	
 }//End of function CreateMultiArrayC_onandafter_04022012(){
-//CreateMultiArrayC_onandafter_04022012(); //must keep this because this is for hired on and after 04/02/2012
+//CreateMultiArrayC_onandafter_04022012() //must keep this because this is for hired on and after 04/02/2012
 
 //for 1st and 2nd calculator
 //validate Year or service has to be minimum 10 years of services with age 45
@@ -600,21 +578,21 @@ function validateYRofServices(field, varVeteran) {
  var varMV = varVeteran
 //= document.frmCal.militaryveteran.value;
 		 if ((!input == null || !input.length == 0) && (varMV == "Yes")){
-				if (!checkNumber(document.frmCal.YRofServices, 10, 45, " Enter your years of service"))
+				if (!checkNumber(document.frmCal.YRofServices, 10, 45, "5. Enter your years of service"))
 					{
 					document.frmCal.YRofServices.value = "Invalid";
 					//document.write("584 varMV" + varMV);
 					//alert("584 YES YRofServices 10, 45, 5. Enter your years of service  function validateYRofServices1st(field, varVeteran)");		 
 					}
 		}else if ((!input == null || !input.length == 0) && (varMV == "No")){
-				if (!checkNumber(document.frmCal.YRofServices, 10, 45, ". Enter your years of service"))
+				if (!checkNumber(document.frmCal.YRofServices, 10, 45, "5. Enter your years of service"))
 					{
 					document.frmCal.YRofServices.value = "Invalid";
 					//document.write("591 varMV" + varMV);	 
 					//alert("590 NO YRofServices 10, 45, 5. Enter your years of service  function validateYRofServices1st(field, varVeteran)");		 
 					}
 		}else{
-				alert("Enter your years of service is a required field")		
+				alert("6. Enter your years of service is a required field")		
 		}//if ((!input == null || !input.length == 0) && (varMV == "Yes"))
   	field.focus();	
     computeForm();
@@ -645,7 +623,7 @@ function f_calOptionA1st(OptA, varGroup, varVeteran){
 		document.frmCal.grpmember.value = varGroupmember;
 	}else if (ya < 36){ //less than 36
 		blankOptionAvalue();		
-		alert("The calculated age is less than the minimum age (36 years old). Please revise your entered date(s) and check the benefit guide for more details.");
+		alert("1. Sorry, your age entered is less than the minumin age of 36 or you have entered invalid projected retirement date. Please check the dates or the benefit guide for more details.");
 	}else{ // between age 36 and 65				
 			//alert("ARRY[ya] " + ARRY[ya])
 			if (isNaN(ya)){
@@ -784,7 +762,8 @@ function f_cal_beneficiaryDOB1st(dp, mp, yp, isJulian, var_ybBeny, var_mbBeny, v
 				//if ((var_yaBeny < varzero) || (( var_yaBeny == "0") && (var_maBeny <= "0"))) {							
 				if ((var_yaBeny <= varzero) && (var_maBeny <= "0") || (var_yaBeny < varzero)) {							
 					//alert(" var_yaBeny is: "  + var_yaBeny + " , var_maBeny: " + var_maBeny)
-					//beneficiary's age can not be zero
+					alert("Beneficiary's date of birth cannot be later than your projected retirement date. ");
+					
 					blankBeneficiaryDOB();
 					
 				}else {
@@ -904,30 +883,8 @@ function getArrayOptionC1st(rowCvar_yaC6690, colCvar_BenefAgeYY, colCMMvar_Benef
 					//aryC[55].substr(((1-1)*6)+2, 6) = aryC[55].substr(2, 6)
 					//age colC = age7 - 5 = 2
 					//aryC[55].substr(((2-1)*6)+2, 6) = aryC[55].substr(8, 6)
-					
-					var benefAryCfactor = aryC[rowC].substr(((colC-1)*6)+2, 6); 
-					//Example 1: Member's Age = 60(rowC), Beneficiary's Age = 1(colC)  then Factor = aryC[60]="0.8166"		
-					//rowC = 60  is the retiree Member's age. Excel Row# 60		
-					//colC = 1   is the beneficiary's age. Excel column#  1		
-					//Table look up: Row is 60, Column = 1. Factor is =0.8166		
-							
-					//Example 1 of the fomulas:  var benefAryCfactor = ary[60].substr((1-1)*6+2,6) = 0.8166		
-					//(Option C beneficiary's table at array age 60).(select six string from position 2 which is = 0.8166 factor)		
-					//ary[60].substr(((1-1)*6)+2, 6)=  ary[60].substr(2, 6)  = 0.8166  factor		
-							
-					//Example 2: Member's Age = 60(rowC), Beneficiary's Age = 8(colC)  then Factor = 0.8196  factor		
-					//rowC = 60  is Retiree Member's age. Excel Row# 60		
-					//colC = 8   is Beneficiary's age. Excel column# 1		
-					//Table look up: Row is 60, Column = 8. Factor is = 0.8196		
-					//Example of the fomulas:  ary[60].substr((8-1)*6+2,6)		
-					//(Option C beneficiary's table at array age 60).(select six string from position 44 which is = 0.8196 factor)		
-					//ary[60].substr(((8-1)*6)+2, 6) = ary[60].substr(44, 6) = 0.8196		
-							
-					/**		
-					 * End of the Main formulas matrix		
-					 * for hired on and after 04-02-2012		
-					 ***/
-										
+					var benefAryCfactor = aryC[rowC].substr(((colC-1)*6)+2, 6); // ary[60].substr(((7-1)*6)+2, 6)= 0.8191  factor
+					//Ex. MultiArray[60].Beneficiaree(col=7) = at position 38 and takes 6 string = 0.8191	
 					document.frmCal.myResultOptionCfator.value = benefAryCfactor;	//
 					//	var OptionATotal = document.frmCal.AmountOptionA.value; //Avg of 3 years salary
 					colC = (colC + 5)// for display	add 5 years back to the age for the actual age 6 + 5 = age 11 for benee					
@@ -973,8 +930,8 @@ function f_calOptionA2nd(OptA, varGroup, varVeteran, varYRofS){
 		document.frmCal.yaA.value = 67;//Change on 6/19/2017
 		document.frmCal.grpmember.value = varGroupmember;
 	}else if (ya < 36){ //less than 36
-		blankOptionAvalue();
-		alert("The calculated age is less than the minimum age (36 years old). Please revise your entered date(s) and check the benefit guide for more details.");
+		blankOptionAvalue();		
+		alert("Sorry, your age entered is less than the minimum age of 36. Please check the date or the Benefit Guide for more details.");
 	}else{ // between age 36 and 67			
 			//alert("ARRY[ya] " + ARRY[ya])
 			if (isNaN(ya)){
@@ -1098,34 +1055,33 @@ function getArrayOptionC2nd(rowCvar_yaC6690, colCvar_BenefAgeYY, colCMMvar_Benef
 						// Change on 6-15-2017
 						//colC = (colC - 5) // the beneficiary's age start from age 6 instead of age 1 so colC(6) - 5 = age 1
 						
-						/** 2nd set
+						/**
 						 * Main formulas matrix
-						 * for hired before 04-02-2012
+						 * for hired on and after 04-02-2012
 						 ***/
 						 
 						var benefAryCfactor = aryC[rowC].substr(((colC-1)*6)+2, 6); //// Change on 6-15-2017
-						//Example 1: Member's Age = 60(rowC), Beneficiary's Age = 1(colC)  then Factor = 0.8152  factor		
-						//rowC = 60  is the retiree Member's age. Excel Row# 60		
-						//colC = 1   is the beneficiary's age. Excel column#  1		
-						//Table look up: Row is 60, Column = 1. Factor is = 0.8152		
-								
-						//Example 1 of the fomulas:  var benefAryCfactor = ary[60].substr((1-1)*6+2,6) = 0.8152		
-						//(Option C beneficiary's table at array age 60).(select six string from position 2 which is = 0.8152 factor)		
-						//ary[60].substr(((1-1)*6)+2, 6)=  ary[60].substr(2, 6)  = 0.8152  factor		
-								
-						//Example 2: Member's Age = 60(rowC), Beneficiary's Age = 8(colC)  then Factor = 0.8173  factor		
-						//rowC = 60  is Retiree Member's age. Excel Row# 60		
-						//colC = 8   is Beneficiary's age. Excel column# 1		
-						//Table look up: Row is 60, Column = 8. Factor is = 0.8173		
-						//Example of the fomulas:  ary[60].substr((8-1)*6+2,6)		
-						//(Option C beneficiary's table at array age 60).(select six string from position 44 which is = 0.8173 factor)		
-						//ary[60].substr(((8-1)*6)+2, 6) = ary[60].substr(44, 6) = 0.8173		
-								
-						/**		
-						 * End of the Main formulas matrix		
-						 * for hired on and after 04-02-2012		
-						 ***/	
-
+						//Example 1: Member's Age = 60(rowC), Beneficiary's Age = 1(colC)  then Factor = 0.8152  factor
+						//rowC = 60  is the retiree Member's age. Excel Row# 60
+						//colC = 1   is the beneficiary's age. Excel column#  1
+						//Table look up: Row is 60, Column = 1. Factor is = 0.8152
+						
+						//Example 1 of the fomulas:  var benefAryCfactor = ary[60].substr((1-1)*6+2,6) = 0.8152
+						//(Option C beneficiary's table at array age 60).(select six string from position 2 which is = 0.8152 factor)								
+						//ary[60].substr(((1-1)*6)+2, 6)=  ary[60].substr(2, 6)  = 0.8152  factor
+													
+						//Example 2: Member's Age = 60(rowC), Beneficiary's Age = 8(colC)  then Factor = 0.8173  factor
+						//rowC = 60  is Retiree Member's age. Excel Row# 60
+						//colC = 8   is Beneficiary's age. Excel column# 1
+						//Table look up: Row is 60, Column = 8. Factor is = 0.8173
+						//Example of the fomulas:  ary[60].substr((8-1)*6+2,6)
+						//(Option C beneficiary's table at array age 60).(select six string from position 44 which is = 0.8173 factor)								
+						//ary[60].substr(((8-1)*6)+2, 6) = ary[60].substr(44, 6) = 0.8173
+							
+						/**
+						 * End of the Main formulas matrix
+						 * for hired on and after 04-02-2012
+						 ***/
 	
 					document.frmCal.myResultOptionCfator.value = benefAryCfactor;	//
 					//	var OptionATotal = document.frmCal.AmountOptionA.value; //Avg of 3 years salary
@@ -1358,8 +1314,7 @@ function inRange(inputStr, lo, hi) {
 
 function checkNumber(input, min, max, msg)
 {   
-	//msg = msg + " field has invalid data: " + input.value;
-	msg = msg + " ' " + input.value  + " ' " ;
+	msg = msg + " field has invalid data: " + input.value;
     var str = input.value;	
     for (var i = 0; i < str.length; i++) {
         var ch = str.substring(i, i + 1)
@@ -1383,6 +1338,43 @@ function checkNumber(input, min, max, msg)
 function custRound(x,places) {
     return (Math.round(x*Math.pow(10,places)))/Math.pow(10,places)
 }
+
+
+//6-27-2018 for quetion 7 currency format input
+//6/22/2018 test
+	/* With Prefix currencyformat_number*/
+	//document.frmCal.without-prefix.value
+	///var input2 = document.frmCal.without-prefix.value;
+//	var input2 = document.getElementById('without-prefix');
+	/**
+	input2.addEventListener('keyup', function(e)
+	{
+		input2.value = currencyformat_number(this.value, '$ ');
+	});
+	*/
+	/* Function currencyformat_number */
+	
+function currencyformat_number(number, prefix, thousand_separator, decimal_separator)
+{
+	var thousand_separator = thousand_separator || ',',
+		decimal_separator = decimal_separator || '.',
+		regex		= new RegExp('[^' + decimal_separator + '\\d]', 'g'),
+		number_string = number.replace(regex, '').toString(),
+		split	  = number_string.split(decimal_separator),
+		rest 	  = split[0].length % 3,
+		result 	  = split[0].substr(0, rest),
+		thousands = split[0].substr(rest).match(/\d{3}/g);
+	
+	if (thousands) {
+		separator = rest ? thousand_separator : '';
+		result += separator + thousands.join(thousand_separator);
+	}
+	result = split[1] != undefined ? result + decimal_separator + split[1] : result;
+    computeForm();
+	return prefix == undefined ? result : (result ? prefix + result : '');
+}
+
+
 
 function CurrencyFormatted(amount)
 {
@@ -1431,7 +1423,7 @@ function validateAgeFactor(field) {
     //if ((!input == null || !input.length == 0)){
     if (!input.value <= '0.00')
         {
-        alert("Please select AgeFactor drop downd menu." + input);
+        alert("Please select AgeFactor drop down menu." + input);
         document.frmCal.YRofServices.value = "0.00";        
         select(field);
     }
@@ -1443,9 +1435,7 @@ function validateAgeFactor(field) {
 function validateYRAverageSalary(field){
  var input = field.value;
     if ((!input == null || !input.length == 0)){
-//        if (!checkNumber(document.frmCal.YRAverageSalary, 1, 9000000, "7. The average salary you entered is greater than the allowable maximum. Please enter a valid salary estimate ")) //$9,000,000
-        if (!checkNumber(document.frmCal.YRAverageSalary, 1, 9000000, "7. The average salary you entered must be in numeric format with no $ or commas. ")) //$9,000,000
-
+        if (!checkNumber(document.frmCal.YRAverageSalary, 1, 999999999, "Enter your highest 3-year salary average")) //$99,999,999
         {
         document.frmCal.YRAverageSalary.value = "Invalid";		
         }
@@ -1460,7 +1450,7 @@ function validateYRAverageSalary(field){
 function validateisYearyssd(field){
  var input = field.value;
     if ((!input == null || !input.length == 0)){
-        if (!checkNumber(document.frmCal.yssd, 1900, 9999, "1. Please enter your service start year in YYYY format "))//range 1900 - 9999 years
+        if (!checkNumber(document.frmCal.yssd, 1900, 9999, "Your year of service start (year)"))//range 1900 - 9999 years
         {
         document.frmCal.yssd.value = "Invalid";					
         }
@@ -1475,7 +1465,7 @@ function validateisYearyssd(field){
 function validateisYear(field){
  var input = field.value;
     if ((!input == null || !input.length == 0)){
-        if (!checkNumber(document.frmCal.yb, 1900, 9999, "2. Please enter your birth year in YYYY format "))//range 1900 - 9999 years
+        if (!checkNumber(document.frmCal.yb, 1900, 9999, "Your date of birth (year)"))//range 1900 - 9999 years
         {
         document.frmCal.yb.value = "Invalid";					
         }
@@ -1489,7 +1479,7 @@ function validateisYear(field){
 function validateisYearyp(field){
  var input = field.value;
 	if ((!input == null || !input.length == 0)){	
-		if (!checkNumber(document.frmCal.yp, 1900, 9999, "3. Please enter your projected year of retirement in YYYY format "))//range 1900 - 9999 years
+		if (!checkNumber(document.frmCal.yp, 1900, 9999, "Your projected date of retirement (year)"))//range 1900 - 9999 years
 		{
 			document.frmCal.yp.value = "Invalid";		
 		}
@@ -1503,7 +1493,7 @@ function validateisYearyp(field){
 function validateisYearybBeny(field){
  var input = field.value;
 	if ((!input == null || !input.length == 0)){	
-		if (!checkNumber(document.frmCal.ybBeny, 1900, 9999, "Please enter your beneficiary's age year in YYYY format "))//range 1900 - 9999 years
+		if (!checkNumber(document.frmCal.ybBeny, 1900, 9999, "Your beneficiary's age (year)"))//range 1900 - 9999 years
 		{
 			document.frmCal.ybBeny.value = "Invalid";		
 		}
@@ -1734,6 +1724,10 @@ function blankOptionCvalue(){
 	return;
 }
 
+
+
+
+
 function blankRetireeEnterServiceStartDate(){
 //	Enter service start date mm/dd/yyyy  add 3-15-2018
 	document.frmCal.mssd.value = "";
@@ -1768,6 +1762,65 @@ function blankCalbyAge(){  //blankCalbyAgeBeneficiarySelectionfield
 	document.frmCal.BenefAgeMM.value = 0;
 	return;
 }
+
+
+function blankOptionA_C_Report_value(){
+//8-13-2018
+//alert("2445 else if (((ya >= 36) && (YRofS >= 20)) || ((ya >= 55) && (YRofS >= 10)))");
+//other wise blank value for not eligible to retire
+	//Option A blank
+	//document.frmCal.grpmember.value = "";
+	//document.frmCal.yaAdisplayonly.value = "";
+	//document.frmCal.yaC6690.value = "";
+	//document.frmCal.yaA.value = "";
+	//document.frmCal.AmountOptionAbeforeVeteranBenf.value = "";
+	//document.frmCal.txtOptionBbeforeVeteranBenf.value = "";
+	//document.frmCal.txtOptionBPercentage.value = "";	
+	//document.frmCal.YRAverageSalary.value = "";	
+	document.frmCal.AgeFactor.value = 0.00000; //Option A age factor array		
+	document.frmCal.PercentFactor.value = "0%";
+	//document.frmCal.OpAyaservicedisplay.value = "";
+	//document.frmCal.OpAyaservice.value = "";
+	//document.frmCal.OpAyaserviceVeteran.value = "";
+	document.frmCal.Aveteranbenf.value = "0.00";			
+	document.frmCal.AmountOptionA.value = "0.00";
+	//document.frmCal.Aveteranbenf.value = "";
+	document.frmCal.MonthlyBenefit.value = "0.00";
+	
+	// Option B blank	
+	//document.frmCal.YRAverageSalarydisplay.value = "";
+	document.frmCal.txtOptionB.value = "0.00";
+	document.frmCal.txtOptionBmonthly.value = "0.00";		
+	//Option C blank
+	//document.frmCal.myResultOptionCfator.value = "0.00";
+	document.frmCal.myResultOptionC.value = "0.00";
+	document.frmCal.myResultOptionCmonthly.value = "0.00";
+	document.frmCal.myResultOptionCTwoThirdYearly.value = "0.00";
+	document.frmCal.myResultOptionCTwoThirdMonthly.value = "0.00";
+	
+	///document.frmCal.AmountOptionAC.value = "0.00";		
+	///document.frmCal.myResultOptionC.value = "10.00";
+	///document.frmCal.myResultOptionCmonthly.value = "0.00";
+	//Option C blank 2/3 of option A	
+	///document.frmCal.yaBenydispay.value = "0.00";										
+	///document.frmCal.maBenydisplay.value = "";				
+	///document.frmCal.OptCbenfAge.value = ""			
+	///document.frmCal.myResultOptionCTwoThirdYearly.value = "0.00";
+	///document.frmCal.myResultOptionCTwoThirdMonthly.value = "0.00";	
+	
+	//Option A blank Report display value
+	//document.frmCal.AgeFactor.value = "0.00000"; //Option A age factor array	
+	//document.frmCal.PercentFactor.value = "0%"; //Option A PercentFactor
+	//document.frmCal.AmountOptionAbeforeVeteranBenf.value = ""; //Option A AmountOptionAbeforeVeteranBenf
+	//document.frmCal.AmountOptionA.value = ""; //Option A Annual Allowance Yearly:  
+	///document.frmCal.MonthlyBenefit.value = ""; //Option A Annual Allowance MonthlyBenefit
+	///document.frmCal.txtOptionB.value = ""; //Option B Annual Allowance txtOptionB
+	///document.frmCal.txtOptionBbeforeVeteranBenf.value = ""; //Option B Annual Allowance  txtOptionBbeforeVeteranBenf
+	///document.frmCal.txtOptionBPercentage.value = ""; //Option B An txtOptionBPercentage
+	///document.frmCal.txtOptionBmonthly.value = ""; //Option B An txtOptionBPercentage	
+	return;
+}//function blankOptionA_C_Report_value(){
+
 
 //Question 8. OPTIONAL: If you are interested in estimating your benefits under Option C, please select and enter Date of Birth or select your beneficiary's age on the birthdays that are closest to your date of retirement. Reminder: Your Option C beneficiary must be your spouse, child, sibling, parent or former spouse who has not remarried.
 function fdisable(OnOff) { //disable or enable radiobutton
@@ -1812,19 +1865,36 @@ function fdisable(OnOff) { //disable or enable radiobutton
 
 //3/19/2018
 //Call the 1st set of function arrays
-CreateMultiArrayC_before_04022012(); //must keep this for 1st set of calculator
+CreateMultiArrayC_before_04022012() //must keep this for 1st set of calculator
 
 //3/19/2018
 //Call the 2nd set of function arrays
-CreateMultiArrayC_onandafter_04022012(); //must keep this for 2nd set of calculator
+CreateMultiArrayC_onandafter_04022012() //must keep this for 2nd set of calculator
 
 //function computeForm(form) { ===============================================================
 function computeForm(form) {
+	
+	//6/27/2018
+	//6/22/2018 test
+	/* With Prefix currencyformat_number*/
+	//document.frmCal.without-prefix.value
+	//var input2YRAverageSalary = document.getElementById('without-prefix');
+	var input2YRAverageSalary = document.getElementById('YRAverageSalary');
+	/**
+	
+	input2YRAverageSalary.addEventListener('keyup', function(e)
+	{
+		input2YRAverageSalary.value = currencyformat_number(this.value, '$ ');
+	});
+	**/
+	
 		var vartrue1 = "use1stset"; //using 1st set of the calculator
 		var vartrue2 = "use2ndset"; //using 2nd set of the calculator
 		var varremender1 = ""; //using 1st set of the calculator display message
 		var varremender2 = ""; //using 2nd set of the calculator display message
 		var displayenterservicedate = ""; 
+		var varNot_eligible_retire_note = ""; //display_Not_eligible_retire
+		
 		//for Option B percentage of OptionA
 		var varPer100 = 1; //100% of OptionA
 		var varPer99 = 0.99; //99% of OptionA
@@ -1895,40 +1965,44 @@ function computeForm(form) {
 		//	}
 		
 		//Hard coded the maessage base on before or on and after 4/2/2012
-		//1st befoe 4/2/2012
-		varremender1 = "REMINDER: If your total years of creditable service on your projected date of retirement is LESS than 20 years, you must be at least age 55 AND you must have at least 10 years of creditable service in order to be eligible to retire.";
+		//1st befoe 4/2/2012<p style="color:#000099;">
+		varremender1 = "<b>REMINDER: If your total years of creditable service on your projected date of retirement is LESS than 20 years, you must be at least age 55 AND you must have at least 10 years of creditable service in order to be eligible to retire.</b>";
 		//2nd on and after 4/2/2012
-		varremender2 = "REMINDER: Eligibility criteria to retire. All members must have a minimum of 10 years creditable service. Members in Group 1 must be a minimum of 60 years of age. Members in Group 2 must be a minimum of 55 years of age. Members in Group 4 must be a minimum of 50 years of age.";
+		varremender2 = "<b>REMINDER: Eligibility criteria to retire. All members must have a minimum of 10 years creditable service. Members in Group 1 must be a minimum of 60 years of age. Members in Group 2 must be a minimum of 55 years of age. Members in Group 4 must be a minimum of 50 years of age.</b>";
 		//format date MM/DD/YYYY 04/02/2012
 		displayenterservicedate = ((enterservicedate.getMonth() + 1) + '/' + enterservicedate.getDate() + '/' +  enterservicedate.getFullYear());		
 
+
+/** 8/14/2018
 		if (boolean1 == true) { //hired before on 04/02/2012 
 				CreateMultiArrayC_before_04022012(); //Call the 1st set of function arrays, must keep this for 1st set of calculator 			
 				document.frmCal.vartrueorfalse.value = vartrue1; //send the value to the form we use1stset
 				///document.getElementById("displayvartrueorfalse").innerHTML = document.frmCal.vartrueorfalse.value; //display back to the <p></p>
 				document.frmCal.reminder.value = varremender1; //send the value to the form 
-				document.getElementById("displayreminder").innerHTML = document.frmCal.reminder.value; //display back to the <p>displayreminder</p>
+				document.getElementById("displayreminder").innerHTML = '<div style="color:#ff0000;">' + document.frmCal.reminder.value + "</div>"; //display back to the <p>displayreminder</p>
+				//display in red = #ff0000
+//				document.getElementById("displayreminder").innerHTML += '<div style="color:#ff0000;">' + document.frmCal.reminder.value + "</div>"; //display back to the <p>displayreminder</p>
+
 				document.frmCal.enterservicedateddisplayonly.value = displayenterservicedate; //send the value to the form
 				if (boolean3 == true){ //enterservicedate <= dobdate
-				//alert("Note: Your service start date must be greater than your date of birth. Please correct the service start date to continue.");
-				alert("Your service start date must occur after your date of birth. Please revise your entered date of birth or service start date.");
+				alert("Note: Your service start date must be greater than your date of birth. Please correct the service start date to continue.");
 				}
 				//alert("1850 boolean1 == true");
 		}else{  
 		   		if (boolean2 == true) { //hired on and after 04/02/2012			
-				CreateMultiArrayC_onandafter_04022012(); //Call the 2nd set of function arrays, must keep this for 2nd set of calculator
+				CreateMultiArrayC_onandafter_04022012() //Call the 2nd set of function arrays, must keep this for 2nd set of calculator
 				document.frmCal.vartrueorfalse.value = vartrue2; //try to send the value to the form use2ndset
 				///document.getElementById("displayvartrueorfalse").innerHTML = document.frmCal.vartrueorfalse.value; //display back to the <p></p>
 				document.frmCal.reminder.value = varremender2; //try to send the value to the form
-				document.getElementById("displayreminder").innerHTML = document.frmCal.reminder.value; //display back to the <p></p>
+				//document.getElementById("displayreminder").innerHTML = document.frmCal.reminder.value; //display back to the <p></p>
+				document.getElementById("displayreminder").innerHTML = '<div style="color:#ff0000;">' + document.frmCal.reminder.value + "</div>"; //display back to the <p>
 				document.frmCal.enterservicedateddisplayonly.value = displayenterservicedate; //try to send the value to the form
 				if (boolean3 == true){
-				//alert("Note: Your service start date must be greater than your date of birth. Please correct the service start date to continue.");
-				alert("Your service start date must occur after your date of birth. Please revise your entered date of birth or service start date.");
+				alert("Note: Your service start date must be greater than your date of birth. Please correct the service start date to continue.");
 				}
 				}//if (boolean2 == true)
 		}//if (boolean1 == true)
-
+*/
 		// Month length 0->use calendar length
 	   // 0 if Gregorian, 1 is Julian   
 	   var mLength = 0; //(document.frmCal.monthLength.options[document.frmCal.monthLength.selectedIndex].value);
@@ -2010,6 +2084,7 @@ function computeForm(form) {
     var YRofS = document.frmCal.YRofServices.value; // 5) Enter your estimated total number of years of creditable service,
 	///YRofS= custRound((YRofS),2);	
 	var varyrserMM = document.frmCal.yrserMM.value; 
+		
 
 	//3-19-2018
 	if (boolean1 == true) {
@@ -2023,7 +2098,7 @@ function computeForm(form) {
 	}else{
 		//for 2nd set of calculator
 	   if (boolean2 == true) {
-		CreateMultiArrayC_onandafter_04022012(); //must keep this for 2nd set of calculator
+		CreateMultiArrayC_onandafter_04022012() //must keep this for 2nd set of calculator
 		if ((YRofS >=50) && (varyrserMM >= 1)) {
 		varyrserMM = 0;		
 		document.frmCal.yrserMM.value = varyrserMM;
@@ -2115,7 +2190,7 @@ function computeForm(form) {
 		}else{  
 		   if (boolean2 == true) {
 			//Call the 2nd set of function arrays
-			CreateMultiArrayC_onandafter_04022012(); //must keep this for 2nd set of calculator
+			CreateMultiArrayC_onandafter_04022012() //must keep this for 2nd set of calculator
   		    f_calOptionA2nd(OptA, varGroup, varVeteran, varYRofS); // Option A factor	
 		    }
 		}
@@ -2134,7 +2209,7 @@ function computeForm(form) {
 		}else{  
 		   if (boolean2 == true) {
 			//Call the 2nd set of function arrays
-			CreateMultiArrayC_onandafter_04022012(); //must keep this for 2nd set of calculator
+			CreateMultiArrayC_onandafter_04022012() //must keep this for 2nd set of calculator
   		    f_calOptionC2nd(OptC, varGroup, OptC_ma, OptC_OptionA_yaA); // Option C factor
 			//alert("2153.f_calOptionC2nd(OptC, varGroup, OptC_ma, OptC_OptionA_yaA)");
 		    }
@@ -2160,10 +2235,34 @@ function computeForm(form) {
 		NonMax_YRAOptionC_Max_YRAOptionCdisplay = document.frmCal.AmountOptionACbeforeVeteranBenf.value;
 		//display alert
 		var yaAgeCheck = document.frmCal.yaAdisplayonly.value 		
+		/** 6-27-2018
 		var YRA = document.frmCal.YRAverageSalary.value; // 4) Enter your highest 3-year salary average (Example: 30000 without '$' or ',') 
 		varYRAverageSalarydisplay = document.frmCal.YRAverageSalary.value;
 		document.frmCal.YRAverageSalarydisplay.value = CommaFormatted(CurrencyFormatted(varYRAverageSalarydisplay));
+		*/
+
 		//document.frmCal.PercentFactor.value = custRound((i * YRofS),2);
+		//6-27-2018 for question.7 Currencyformat after input
+		/* With Prefix currencyformat_number*/
+		//document.frmCal.without-prefix.value
+		//var input2YRAverageSalary = document.getElementById('without-prefix');
+		///var input2YRAverageSalary = document.getElementById('YRAverageSalary');	
+		///input2YRAverageSalary.addEventListener('keyup', function(e)
+
+		input2YRAverageSalary.addEventListener('change', function(e)
+		{
+			input2YRAverageSalary.value = currencyformat_number(this.value, '$ ');
+			document.frmCal.YRAverageSalarydisplay.value = input2YRAverageSalary.value; //note1: must display to the YRAverageSalarydisplay text box after event
+		}); //convert numbers with dollar sign and comma and decimal numbers ex. 12345.67 ==> $1,234.67
+	
+		varYRAverageSalarydisplay = document.frmCal.YRAverageSalary.value; //note2: must dispaly back to the YRAverageSalarydisplay text box
+		//document.frmCal.YRAverageSalarydisplay.value = CommaFormatted(CurrencyFormatted(varYRAverageSalarydisplay));		
+		document.frmCal.YRAverageSalarydisplay.value = varYRAverageSalarydisplay;
+
+		var YRA = document.frmCal.YRAverageSalary.value; // 4) Enter your highest 3-year salary average (Example: 30000 without '$' or ',')		
+		YRA = YRA.replace(/\$|,/g, ""); //6/27/2018 reverse format to number with decimal ex. $1,234.67 ==> 1234.67
+		
+		
 		var i = document.frmCal.AgeFactor.value; // 1. Enter AgeFactor
 		if (i > 1.0) {
 			i = i / 100.0;
@@ -2198,7 +2297,7 @@ function computeForm(form) {
 					}else{  
 					   if (boolean2 == true) {
 						//Call the 2nd set of function arrays
-						CreateMultiArrayC_onandafter_04022012(); //must keep this for 2nd set of calculator
+						CreateMultiArrayC_onandafter_04022012() //must keep this for 2nd set of calculator
 						f_cal_beneficiaryDOB2nd(dp, mp, yp, isJulian, var_ybBeny, var_mbBeny, var_dbBeny, OptC_OptionA_yaA, rowCvar_yaC6690);
 						//alert("2216. f_cal_beneficiaryDOB2nd(dp, mp, yp, isJulian, var_ybBeny, var_mbBeny, var_dbBeny, OptC_OptionA_yaA, rowCvar_yaC6690);");
 						}
@@ -2220,7 +2319,7 @@ function computeForm(form) {
 						}else{  
 						   if (boolean2 == true) {//Call the 2nd set of function arrays
 							//3/19/2018			
-							CreateMultiArrayC_onandafter_04022012(); //must keep this for 2nd set of calculator
+							CreateMultiArrayC_onandafter_04022012() //must keep this for 2nd set of calculator
 							getArrayOptionC2nd(rowCvar_yaC6690, colCvar_BenefAgeYY, colCMMvar_BenefAgeMM, OptC_OptionA_yaA);
 							//alert("2241. getArrayOptionC2nd(rowCvar_yaC6690, colCvar_BenefAgeYY, colCMMvar_BenefAgeMM, OptC_OptionA_yaA);");
 						  }//if (boolean1 == true) {
@@ -2249,6 +2348,10 @@ function computeForm(form) {
 		var PFparseFloat36; 
 		var displayPercentFactor;
 	var varzerotext = "0";
+	
+	
+	var vargrpmember = document.frmCal.groupmember.value;
+	
     if (PF >= MaxPF) {// Option A PecentFactor reach to Maxium 80%		
 			//for Option A
 			displayPercentFactor = (0.80 * 100) + "%" ;
@@ -2283,20 +2386,26 @@ function computeForm(form) {
 			document.frmCal.AmountOptionA.value = displayAmountOptionAC; //WJL
 			//Option A Monthly Benefit Amount = (Max_YRA/12);			
 			document.frmCal.MonthlyBenefit.value = CommaFormatted(CurrencyFormatted(Max_YRATotal / 12)); 
-		
-			/* orignal code 
+			//6/28/2018					
+			//document.getElementById("display_AmountOptionA_YearlyBenefit").innerHTML = displayAmountOptionAC; //<li>Annual Allowance: &nbsp;&nbsp;$<label for="displayAmountOptionA"></label>
+			//display_AmountOptionA_MonthlyBenefit
+			//document.getElementById("display_AmountOptionA_MonthlyBenefit").innerHTML = displayAmountOptionAC; //<li>Annual Allowance: &nbsp;&nbsp;$<label for="displayAmountOptionA"></label>
+			
+			/* orignal code **/	
 				if (varVeteran == "Yes"){//for Option B						
 						Max_YRAOptionB99 = (Max_YRA * 0.99); // for calculation (Ex. 0.99 * $10,000.00 = $9,900.00 )
 						//document.frmCal.txtOptionBbeforeVeteranBenf.value = Max_YRAOptionB99; //display only for Option B Amount before veteran's benefits
 						Max_YRAOptionBTotal =  (Max_YRAOptionB99 + vetbenefitperyear) 								
 						//Line 5. = 3. x 4. for display on the AmountOptionA text field (Ex. $2,000.00)  
+						document.frmCal.txtOptionBPercentage.value = varPer99;
 				}else{
 							Max_YRAOptionB99 = (Max_YRA * 0.99);
 							Max_YRAOptionBTotal = (Max_YRA *0.99); // for calculation (0.80 * 10,000.00)
 							//5. for display on the AmountOptionA text field
+						document.frmCal.txtOptionBPercentage.value = varPer99;
 				}//if (varVeteran == "Yes"){//for Option B
 				
-			**/	
+
 			
 			/** 4-5-2018 */			
 			//for Option B from the book
@@ -2317,7 +2426,9 @@ function computeForm(form) {
 			var varPer97 = 0.97; //97% of OptionA
 			var varPer96 = 0.96; //96% of OptionA
 			var varPer95 = 0.95; //95% of OptionA
-			*/					
+			*/
+			/****
+						
 			if (ya < 50 ){//100%
 				Max_YRAOptionB99 = (Max_YRA); // for calculation (Ex. 0.80 * $10,000.00 AVG salary = 8,000, 8,000 x 100% = $8,000)
 				document.frmCal.txtOptionBPercentage.value = varPer100;
@@ -2362,7 +2473,12 @@ function computeForm(form) {
 					//5. for display on the AmountOptionA text field				
 				Max_YRAOptionBTotal = Max_YRAOptionB99;				
 			}//if (varVeteran == "Yes"){//for Option B
-			/**4-5-2018 */				
+			
+			//canceled 8-20-2018
+			****/				
+			
+			
+			
 			document.frmCal.txtOptionBbeforeVeteranBenf.value = Max_YRAOptionB99; //display only for Option B Amount before veteran's benefits
 			
 			document.frmCal.txtOptionB.value = CommaFormatted(CurrencyFormatted(Max_YRAOptionBTotal));			
@@ -2402,9 +2518,33 @@ function computeForm(form) {
 				blankOptionCvalue();		
 			} //if (yOptionCfactor > 0 )
     }else{	// Lease than 80% PercentFactor
+	
+	
+	
+	
+
+		if (boolean1 == true) { //hired before on 04/02/2012 
+				CreateMultiArrayC_before_04022012(); //Call the 1st set of function arrays, must keep this for 1st set of calculator 			
+				document.frmCal.vartrueorfalse.value = vartrue1; //send the value to the form we use1stset
+				///document.getElementById("displayvartrueorfalse").innerHTML = document.frmCal.vartrueorfalse.value; //display back to the <p></p>
+				document.frmCal.reminder.value = varremender1; //send the value to the form 
+				document.getElementById("displayreminder").innerHTML = '<div style="color:#ff0000;">' + document.frmCal.reminder.value + "</div>"; //display back to the <p>displayreminder</p>
+				//display in red = #ff0000
+//				document.getElementById("displayreminder").innerHTML += '<div style="color:#ff0000;">' + document.frmCal.reminder.value + "</div>"; //display back to the <p>displayreminder</p>
+
+				document.frmCal.enterservicedateddisplayonly.value = displayenterservicedate; //send the value to the form
+				if (boolean3 == true){ //enterservicedate <= dobdate
+					alert("Note: Your service start date must be greater than your date of birth. Please correct the service start date to continue.");		
+				}
+				//alert("1850 boolean1 == true");
+				//8/14/2018
+
 		  	if (ya < 36){ //less than 36 year of age 
-			  	blankOptionCvalue();			
-			}else if (ya >= 36){ //greater than and equal to 36
+			  	blankOptionCvalue(); // NOT QUALIFY TO RETIRE 
+				
+					}else if (((ya >= 55) && (YRofS >= 10)) || ((ya >= 36) && (YRofS >= 20))){ //
+					//Retirement qualification: (Age 55 or more with 10 year of services) OR (Age 36 or more with 20 years or more of services) 				
+					
 					///document.frmCal.OpAyaservice.value = YRofS; //Option A review display
 					//document.frmCal.PercentFactor.value = PF;
 					PFparseFloat36 =  parseFloat(PF)					
@@ -2412,8 +2552,7 @@ function computeForm(form) {
 						PFparseFloat36 = custRound((PFparseFloat36 * 100), 2); //WJL 2
 					}					
 					displayPercentFactor = PFparseFloat36 + "%" ;
-					document.frmCal.PercentFactor.value = displayPercentFactor;
-					// document.frmCal.PercentFactor.value = PFparseFloat36 + "%" ; // If ya >= 36 for display in percentage
+					document.frmCal.PercentFactor.value = PFparseFloat36 + "%" ; // If ya >= 36 for display in percentage
 					
 					if (varVeteran == "Yes"){// for Option A				
 						NonMax_YRA = (PF * YRA); // for calculation (Ex. 0.20 * 10000.00 = 2000.00 )
@@ -2434,25 +2573,35 @@ function computeForm(form) {
 					//Option A
 					//document.frmCal.OpAyaservicedisplay.value = (parseInt(YRofS) + "." + varyrserMM) // varyrserMM //varYRofS ; ///802 wjl
 					displayAmountOptionAC = CommaFormatted(CurrencyFormatted(NonMax_YRA_Total)); 	
-					document.frmCal.AmountOptionA.value = displayAmountOptionAC; //WJL		
-					
-					
+					document.frmCal.AmountOptionA.value = displayAmountOptionAC; //WJL
+					//6/28/2018
+					//<p>Annual Allowance: &nbsp;&nbsp;$ 1,234.56</p>
+					//var vardisplay_AmountOptionA_YearlyBenefit = displayAmountOptionAC;
+					//document.getElementById("display_AmountOptionA_YearlyBenefit").innerHTML = "<p>Annual Allowance: $" + vardisplay_AmountOptionA_YearlyBenefit + "</p>";  
+								
 					//Option A Monthly Benefit Amount = (Max_YRA/12);			
-					document.frmCal.MonthlyBenefit.value = CommaFormatted(CurrencyFormatted(NonMax_YRA_Total / 12)); 
+					document.frmCal.MonthlyBenefit.value = CommaFormatted(CurrencyFormatted(NonMax_YRA_Total / 12));
+					//var vardisplay_AmountOptionA_MonthlyBenefit = CommaFormatted(CurrencyFormatted(NonMax_YRA_Total / 12));
+					//6/28/2018
+					//display_AmountOptionA_MonthlyBenefit
+					//document.getElementById("display_AmountOptionA_MonthlyBenefit").innerHTML = "<p>Monthly Allowance: $" + vardisplay_AmountOptionA_MonthlyBenefit + "</p>";  
 					
-					/* original code 
+					/* original code **/
 					if (varVeteran == "Yes"){//for Option B		
 						NonMax_YRAOptionB99 = (NonMax_YRA * 0.99); // for calculation (Ex. 0.20 * 10000.00 = 2000.00 )
 						//document.frmCal.txtOptionBbeforeVeteranBenf.value = NonMax_YRAOptionB99; //display only for Option B Amount before veteran's benefits
 						NonMax_YRAOptionBTotal =  (NonMax_YRAOptionB99 + vetbenefitperyear) ;	
-						//Line 5. = 3. x 4. for display on the AmountOptionA text field (Ex. $2,000.00)  
+						//Line 5. = 3. x 4. for display on the AmountOptionA text field (Ex. $2,000.00)
+						//var varPer99 = 0.99; //99% of OptionA
+						document.frmCal.txtOptionBPercentage.value = varPer99;
 					}else{
 						NonMax_YRAOptionB99 = (NonMax_YRA * 0.99);
 						NonMax_YRAOptionBTotal = (NonMax_YRA * 0.99); // for calculation (0.80 * 10,000.00)
-						//document.frmCal.txtOptionBbeforeVeteranBenf.value = NonMax_YRAOptionBTotal; //display only for Option B Amount before veteran's benefits					
+						//document.frmCal.txtOptionBbeforeVeteranBenf.value = NonMax_YRAOptionBTotal; //display only for Option B Amount before veteran's benefits
+						document.frmCal.txtOptionBPercentage.value = varPer99;				
 					}//if (varVeteran == "Yes"){//for Option B	
 					
-					**/
+					
 					
 					/** 4-5-2018 */	
 					//for Option B
@@ -2475,6 +2624,7 @@ function computeForm(form) {
 					var varPer95 = 0.95; //95% of OptionA
 					*/
 					
+					/**** canceled 8-20-2018
 					if (ya < 50 ){//100%		
 						NonMax_YRAOptionB99 = (NonMax_YRA); // for calculation (Ex. 0.20 * $10,000.00 AVG salary = 2,000, 2000 x 1 = $2,000)
 						document.frmCal.txtOptionBPercentage.value = varPer100;
@@ -2523,7 +2673,13 @@ function computeForm(form) {
 						//alert("2397. else nonveteran NonMax_YRAOptionBTotal:" + NonMax_YRAOptionBTotal);
 					}//if (varVeteran == "Yes"){//for Option B	
 					
-					/** 4-5-2018 */
+					//canceled 8-20-2018
+					****/
+					
+					/** 4-5-2018 */				
+					
+					
+					
 					document.frmCal.txtOptionBbeforeVeteranBenf.value = NonMax_YRAOptionB99;
 					document.frmCal.txtOptionB.value = CommaFormatted(CurrencyFormatted(NonMax_YRAOptionBTotal));			
 					//Option B txtOptionBmonthly
@@ -2559,8 +2715,218 @@ function computeForm(form) {
 						document.frmCal.myResultOptionCTwoThirdMonthly.value = CommaFormatted(CurrencyFormatted(((NonMax_YRAOptionBTotal * 2)/3)/12)); // 2/3 in monthly
 						}//if ((yOptionCfactor > 0) && (yOptionCfactor <= 1))
 		    }else{ //else if (ya >= 36)
-				blankOptionCvalue();//Option C blank
-		    } // if (ya < 36){ //less than 36 year of age 			
+				blankOptionA_C_Report_value(); //blank Option A and C reports
+				//blankOptionCvalue();//Option C blank				
+				//alert("2607 sorry, you are not eligible to retire");
+		    } // if (ya < 36){ //less than 36 year of age 	
+
+				
+				
+		}else{  
+		   		if (boolean2 == true) { //hired on and after 04/02/2012			
+				CreateMultiArrayC_onandafter_04022012() //Call the 2nd set of function arrays, must keep this for 2nd set of calculator
+				document.frmCal.vartrueorfalse.value = vartrue2; //try to send the value to the form use2ndset
+				///document.getElementById("displayvartrueorfalse").innerHTML = document.frmCal.vartrueorfalse.value; //display back to the <p></p>
+				document.frmCal.reminder.value = varremender2; //try to send the value to the form
+				//document.getElementById("displayreminder").innerHTML = document.frmCal.reminder.value; //display back to the <p></p>
+				document.getElementById("displayreminder").innerHTML = '<div style="color:#ff0000;">' + document.frmCal.reminder.value + "</div>"; //display back to the <p>
+				document.frmCal.enterservicedateddisplayonly.value = displayenterservicedate; //try to send the value to the form
+				if (boolean3 == true){
+					alert("Note: Your service start date must be greater than your date of birth. Please correct the service start date to continue.");
+				}
+			}//if (boolean2 == true)
+			
+				//8/14/2018
+
+		  	if (ya < 36){ //less than 36 year of age 
+			  	blankOptionCvalue();			
+//			}else if (ya >= 36){ //greater than and equal to 36
+//8-13-2018 new WJL
+			//}else if ((ya < 55) && (YRofS < 20)){ //less than age 55 
+			//	alert("2442 else if ((ya < 55) && (YRofS < 10))");
+				
+			//}else if (((ya >= 36) && (YRofS >= 20)) || ((ya >= 55) && (YRofS >= 10))){ //greater than and equal to 36
+			}else if ( (((ya >= 60) && (vargrpmember = 1)) || ((ya >= 55) && (vargrpmember = 2)) || ((ya >= 50) && (vargrpmember = 4))) && (YRofS >= 10)){ //greater than and equal to 36
+			//			varGroup 
+					//alert("2731 2nd set varGroupmember:" + varGroup);
+					//alert("2730 2nd set calculation  else if (((ya >= 36) && (YRofS >= 20)) || ((ya >= 55) && (YRofS >= 10)))");
+					///document.frmCal.OpAyaservice.value = YRofS; //Option A review display
+					//document.frmCal.PercentFactor.value = PF;
+					PFparseFloat36 =  parseFloat(PF)					
+					if (PFparseFloat36 < 1) {									
+						PFparseFloat36 = custRound((PFparseFloat36 * 100), 2); //WJL 2
+					}					
+					displayPercentFactor = PFparseFloat36 + "%" ;
+					document.frmCal.PercentFactor.value = PFparseFloat36 + "%" ; // If ya >= 36 for display in percentage
+					
+					if (varVeteran == "Yes"){// for Option A				
+						NonMax_YRA = (PF * YRA); // for calculation (Ex. 0.20 * 10000.00 = 2000.00 )
+						document.frmCal.AmountOptionAbeforeVeteranBenf.value = NonMax_YRA; //display the opntionA amount before Veteran's benenefits
+						NonMax_YRA_Total =  (NonMax_YRA + vetbenefitperyear);
+						//Line 5. = 3. x 4. for display on the AmountOptionA text field (Ex. $2,000.00)  					
+					}else{
+						NonMax_YRA = (PF * YRA); // for calculation (Ex. 0.20 * 10000.00 = 2000.00 )		
+						NonMax_YRA_Total = (PF * YRA); // for calculation (0.80 * 10,000.00)
+						document.frmCal.AmountOptionAbeforeVeteranBenf.value = NonMax_YRA_Total; //display the opntionA amount before Veteran's benenefits
+						//5. for display on the AmountOptionA text field
+					} //if (varVeteran == "Yes"){// for Option A	
+							
+					if (varyrserMM < 10) {
+					 varyrserMM = varzerotext + varyrserMM;				
+					}
+
+					//Option A
+					//document.frmCal.OpAyaservicedisplay.value = (parseInt(YRofS) + "." + varyrserMM) // varyrserMM //varYRofS ; ///802 wjl
+					displayAmountOptionAC = CommaFormatted(CurrencyFormatted(NonMax_YRA_Total)); 	
+					document.frmCal.AmountOptionA.value = displayAmountOptionAC; //WJL
+					//6/28/2018
+					//<p>Annual Allowance: &nbsp;&nbsp;$ 1,234.56</p>
+					//var vardisplay_AmountOptionA_YearlyBenefit = displayAmountOptionAC;
+					//document.getElementById("display_AmountOptionA_YearlyBenefit").innerHTML = "<p>Annual Allowance: $" + vardisplay_AmountOptionA_YearlyBenefit + "</p>";  
+								
+					//Option A Monthly Benefit Amount = (Max_YRA/12);			
+					document.frmCal.MonthlyBenefit.value = CommaFormatted(CurrencyFormatted(NonMax_YRA_Total / 12));
+					//var vardisplay_AmountOptionA_MonthlyBenefit = CommaFormatted(CurrencyFormatted(NonMax_YRA_Total / 12));
+					//6/28/2018
+					//display_AmountOptionA_MonthlyBenefit
+					//document.getElementById("display_AmountOptionA_MonthlyBenefit").innerHTML = "<p>Monthly Allowance: $" + vardisplay_AmountOptionA_MonthlyBenefit + "</p>";  
+					
+					/* original code **/
+					if (varVeteran == "Yes"){//for Option B		
+						NonMax_YRAOptionB99 = (NonMax_YRA * 0.99); // for calculation (Ex. 0.20 * 10000.00 = 2000.00 )
+						//document.frmCal.txtOptionBbeforeVeteranBenf.value = NonMax_YRAOptionB99; //display only for Option B Amount before veteran's benefits
+						NonMax_YRAOptionBTotal =  (NonMax_YRAOptionB99 + vetbenefitperyear) ;	
+						//Line 5. = 3. x 4. for display on the AmountOptionA text field (Ex. $2,000.00)
+						document.frmCal.txtOptionBPercentage.value = varPer99;  
+					}else{
+						NonMax_YRAOptionB99 = (NonMax_YRA * 0.99);
+						NonMax_YRAOptionBTotal = (NonMax_YRA * 0.99); // for calculation (0.80 * 10,000.00)
+						//document.frmCal.txtOptionBbeforeVeteranBenf.value = NonMax_YRAOptionBTotal; //display only for Option B Amount before veteran's benefits
+						document.frmCal.txtOptionBPercentage.value = varPer99;					
+					}//if (varVeteran == "Yes"){//for Option B	
+					
+					
+					
+					/** 4-5-2018 */	
+					
+					//for Option B
+					//Option B Pension Yearly from the book 
+					//document.frmCal.txtOptionB.value = CommaFormatted(CurrencyFormatted(Max_YRATotal * 0.99));
+					/** 
+					Members age is less than 50: 0% reduction
+					Members age is greater than or equal to 50 AND less than 55: 1% reduction
+					Members age is greater than or equal to 55 AND less than 60: 2% reduction
+					Members age is greater than or equal to 60 AND less than 65: 3% reduction
+					Members age is greater than or equal to 65 AND less than 70: 4% reduction
+					Members age is greater than or equal to 70: 5% reduction
+					*/
+					/**
+					var varPer100 = 1; //100% of OptionA
+					var varPer99 = 0.99; //99% of OptionA
+					var varPer98 = 0.98; //98% of OptionA
+					var varPer97 = 0.97; //97% of OptionA
+					var varPer96 = 0.96; //96% of OptionA
+					var varPer95 = 0.95; //95% of OptionA
+					*/
+					/*** cancel 8-20-2018
+					if (ya < 50 ){//100%		
+						NonMax_YRAOptionB99 = (NonMax_YRA); // for calculation (Ex. 0.20 * $10,000.00 AVG salary = 2,000, 2000 x 1 = $2,000)
+						document.frmCal.txtOptionBPercentage.value = varPer100;
+					    //alert("2469 Option A PecentFactor under 80% if (ya <= 50 ){//100% Max_YRA * 1" );
+					}else if (ya >= 50 &&  ya < 55){//99%			
+						//NonMax_YRAOptionB99 = (NonMax_YRA * 0.99); // for calculation (Ex. 0.20 * $10,000.00 AVG salary = 2,000, 2000x0.99 = $1,980)
+						NonMax_YRAOptionB99 = (NonMax_YRA * varPer99); // for calculation (Ex. 0.20 * $10,000.00 AVG salary = 2,000, 2000x0.99 = $1,980)
+						document.frmCal.txtOptionBPercentage.value = varPer99;
+						//alert("2472. if (ya >= 50 && ya < 55) Max_YRA * 0.99" );					
+					}else if (ya >= 55 &&  ya < 60){//98%			
+						//NonMax_YRAOptionB99 = (NonMax_YRA * 0.98); 
+						NonMax_YRAOptionB99 = (NonMax_YRA * varPer98); 
+						document.frmCal.txtOptionBPercentage.value = varPer98;
+						//alert("2475. if (ya >= 55 && ya < 60) Max_YRA * 0.98" );					
+					}else if (ya >= 60 && ya < 65){//97%
+						//NonMax_YRAOptionB99 = (NonMax_YRA * 0.97);
+						NonMax_YRAOptionB99 = (NonMax_YRA * varPer97);
+						document.frmCal.txtOptionBPercentage.value = varPer97;
+						//alert("2478. }else if (ya >= 60 && ya < 65){ Max_YRA * 0.97" );
+					}else if (ya >= 65 &&  ya < 70){//96%			
+						//NonMax_YRAOptionB99 = (NonMax_YRA * 0.96);
+						NonMax_YRAOptionB99 = (NonMax_YRA * varPer96);
+						document.frmCal.txtOptionBPercentage.value = varPer96;
+						//	alert("2481. if (ya >= 65 && ya < 70) Max_YRA * 0.96" );					
+					}
+					else{ //ya < 50
+						if (ya >= 70){//95%
+						//NonMax_YRAOptionB99 = (NonMax_YRA * 0.95);
+						NonMax_YRAOptionB99 = (NonMax_YRA * varPer95);
+						document.frmCal.txtOptionBPercentage.value = varPer95;
+						//alert("2486.  (ya >= 70)(else varveteran NonMax_YRAOptionB99 * 0.95" );							
+						}
+					}//if (ya < 50 ){//100%					
+					
+					if (varVeteran == "Yes"){//for Option B		
+					///	NonMax_YRAOptionB99 = (NonMax_YRA * 0.99); // for calculation (Ex. 0.20 * 10000.00 = 2000.00 )
+						//document.frmCal.txtOptionBbeforeVeteranBenf.value = NonMax_YRAOptionB99; //display only for Option B Amount before veteran's benefits
+					///	NonMax_YRAOptionBTotal =  (NonMax_YRAOptionB99 + vetbenefitperyear) ;	
+						//Line 5. = 3. x 4. for display on the AmountOptionA text field (Ex. $2,000.00) 						
+						//3-29-2018
+						NonMax_YRAOptionBTotal =  (NonMax_YRAOptionB99 + vetbenefitperyear);//alert("2297. veteran Age of retirement ya=" + ya);		
+						//alert("2393. veteran NonMax_YRAOptionBTotal:" + NonMax_YRAOptionBTotal);	
+						
+					}else{ //else (varVeteran == "Yes"){//for Option B
+						NonMax_YRAOptionBTotal =  NonMax_YRAOptionB99;
+						//alert("2397. else nonveteran NonMax_YRAOptionBTotal:" + NonMax_YRAOptionBTotal);
+					}//if (varVeteran == "Yes"){//for Option B	
+					// cencel 8-20-2018
+					***/
+					/** 4-5-2018 */
+					
+					
+					document.frmCal.txtOptionBbeforeVeteranBenf.value = NonMax_YRAOptionB99;
+					document.frmCal.txtOptionB.value = CommaFormatted(CurrencyFormatted(NonMax_YRAOptionBTotal));			
+					//Option B txtOptionBmonthly
+					//document.frmCal.txtOptionBmonthly.value = CommaFormatted(CurrencyFormatted((Max_YRATotal * 0.99)/12));
+					document.frmCal.txtOptionBmonthly.value = CommaFormatted(CurrencyFormatted((NonMax_YRAOptionBTotal)/12));			
+	
+					// for Option C
+					var yOptionCfactor = document.frmCal.myResultOptionCfator.value;	//Option C chart
+					//alert("yOptionCfactor: " + yOptionCfactor)
+					var OptionATotal = document.frmCal.AmountOptionA.value; //Avg of 3 years salary from Option A 					
+					if ((yOptionCfactor > 0) && (yOptionCfactor <= 1)){
+						//displayAmountOptionAC = CommaFormatted(CurrencyFormatted(Max_YRA));
+						document.frmCal.AmountOptionAC.value = displayAmountOptionAC;					
+						if (varVeteran == "Yes"){//for Option C			
+							//from option A NonMax_YRA = (PF * YRA);
+							NonMax_YRAOptionC = (NonMax_YRA * yOptionCfactor); // for calculation (Ex. 0.20 * 10000.00 = 2000.00 )
+							NonMax_YRAOptionC_Max_YRAOptionCdisplay = NonMax_YRAOptionC;
+							document.frmCal.AmountOptionACbeforeVeteranBenf.value = NonMax_YRAOptionC_Max_YRAOptionCdisplay ; //display only for OptionC before veteran's benefits
+							NonMax_YRAOptionBTotal =  (NonMax_YRAOptionC + vetbenefitperyear); 		
+							//Line 5. = 3. x 4. for display on the AmountOptionA text field (Ex. $2,000.00)  
+						}else{
+							NonMax_YRAOptionBTotal = (NonMax_YRA * yOptionCfactor); // for calculation (0.80 * 10,000.00)
+							document.frmCal.AmountOptionACbeforeVeteranBenf.value = NonMax_YRAOptionBTotal; //display only for OptionC before veteran's benefits
+							//5. for display on the AmountOptionA text field							
+						}//if (varVeteran == "Yes"){//for Option C	
+						//from option A NonMax_YRA = (PF * YRA);
+						myResultOptionCdisplay = CommaFormatted(CurrencyFormatted(NonMax_YRAOptionBTotal));
+						document.frmCal.myResultOptionC.value = myResultOptionCdisplay;	// Yearly document.arrayForm.myResult2.value=MultiArray[row];
+						document.frmCal.myResultOptionCmonthly.value = CommaFormatted(CurrencyFormatted((NonMax_YRAOptionBTotal)/12)); //monthly
+						//2/3 of the Option C in yearly
+						document.frmCal.myResultOptionCTwoThirdYearly.value = CommaFormatted(CurrencyFormatted((NonMax_YRAOptionBTotal * 2)/3)); // 2/3 in Yearly
+						//2/3 of the Option C in monthly
+						document.frmCal.myResultOptionCTwoThirdMonthly.value = CommaFormatted(CurrencyFormatted(((NonMax_YRAOptionBTotal * 2)/3)/12)); // 2/3 in monthly
+						}//if ((yOptionCfactor > 0) && (yOptionCfactor <= 1))
+		    }else{ //else if (ya >= 36)
+				blankOptionA_C_Report_value(); //blank Option A and C reports
+				//blankOptionCvalue();//Option C blank				
+				//alert("2607 sorry, you are not eligible to retire");
+		    } // if (ya < 36){ //less than 36 year of age 	
+
+				
+				
+		}//if (boolean1 == true)
+
+//8/14/2018
+					
     } //}else{	// Lease than 80% PercentFactor	
 //alert(" 2421 End of program Line ");			
 }// function computeForm(form)
@@ -2568,7 +2934,7 @@ function computeForm(form) {
 function checkForm(form) {
     if (validateAgeFactor(form.AgeFactor)) {
 	   //if (validateYRofServices(form.YRofService)){
-            	if (validateYRAverageSalary(form.YRAverageSalary)) {
+            	///6-27-2018 //if (validateYRAverageSalary(form.YRAverageSalary)) {
 					if (validateisYearyssd(form.yssd)){
 						if (validateisYear(form.yb)){
 							if (validateisYearyp(form.yp)){
@@ -2580,16 +2946,16 @@ function checkForm(form) {
 						}//if (validateisYear(form.yp))
 					}//if (validateisYearyb(form.yb))
 				  }//if (validateisYearyssd(form.yssd))
-    	        }//if (validateYRAverageSalary(form.YRAverageSalary))
+    	       ///6-27-2018 }//if (validateYRAverageSalary(form.YRAverageSalary))
 		//}// if (validateYRofServices(form.YRofService)){
     }//if (validateAgeFactor(form.AgeFactor))
     return false;
 }// function checkForm(form)
 // End of retirement estimator scripts
 
-/* 
+/**
 var gAutoPrint = true; // Flag for whether or not to automatically call the print function
-function printFriendly()
+function printFriendly(oDivObject)
 {
 	if (document.getElementById != null)
 	{
@@ -2604,7 +2970,7 @@ function printFriendly()
 		
 		html += '\n</HE' + 'AD>\n<BODY>\n';
 		
-		var printPageElem = document.getElementById("printFriendly");
+		var printPageElem = document.getElementById("oDivObject");
 		
 		if (printPageElem != null)
 		{
@@ -2628,9 +2994,11 @@ function printFriendly()
 	else
 	{
 		alert("Sorry, the printer friendly feature works\nonly in javascript enabled browsers.");
-	}
+	}	
 }
+
 */
+
 
 /*
 * © 2018 Treasury Computer Services All Rights Reserved
@@ -2648,6 +3016,5 @@ function printFriendly()
 *
 */
 //done hiding from old browsers -->
-
 
 
