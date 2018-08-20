@@ -20,15 +20,15 @@
 </noscript>
 <form id="frmCal" name="frmCal" method="POST" onsubmit="return checkForm(this)" action="">
   <h2 class="style13">Calculate Your Estimated Pension Benefits</h2>
-	  <p class="style11">Eligibility criteria to  retire depends on <a href=" https://www.mass.gov/group-classification-information-msrb" target="_blank">Group Classification</a>. </p>
+	  <p class="style11">Eligibility to retire depends on criteria including your age, creditable service, and <a href=" https://www.mass.gov/group-classification-information-msrb" target="_blank">Group Classification</a>. </p>
   <p>Please note, the following shows the eligibility criteria for two sets of members: </p>
-  <p><strong>For  members entering service before April 2, 2012:</strong></p>
+  <p><strong>For  members <a href="https://www.mass.gov/service-details/creditable-service-for-retirement-msrb" target="_blank">entering service</a> before April 2, 2012:</strong></p>
 <p class="style11">To be eligible to retire,  the member must meet one of the following two conditions on their projected  date of retirement:</p>
   <ul>
 	  <li>Member has 20 years of  full-time creditable service at any age, or</li>
 	  <li>Member has attained age 55 with 10 years creditable service</li>
   </ul>
-	<p class="style11"><strong>For members entering service on and after April 2, 2012:</strong> </p>
+	<p class="style11"><strong>For members <a href="https://www.mass.gov/service-details/creditable-service-for-retirement-msrb" target="_blank">entering service</a> on and after April 2, 2012:</strong> </p>
 	<ul>
 		<li>All members must have a minimum of 10  years creditable service</li>
 		<li>Members in Group 1 must be a minimum of 60 years of age</li>
@@ -101,7 +101,7 @@ Month
           <br />
       </li>
       <!--2-->
-          <li>Select and enter your <strong>service start date</strong> *<br />      
+          <li>Select and enter your <strong><a href="https://www.mass.gov/service-details/creditable-service-for-retirement-msrb" target="_blank">service start date</a></strong> *<br />      
   Month
           <select title="Select your month of start date" id="mssd" name="mssd" disabled onChange="computeForm(this)">
             <option value="null" selected>Select month</option>
@@ -216,7 +216,7 @@ Month
           <input title="Click this button to use current date" id="useCurDate" name="useCurDate" onClick="useCurrentDate(this)" value="Use Current Date" type="button">
       </li>
       <!--4-->
-      <li>Select your <strong>estimated total number of years of creditable service</strong>, including any purchased service or may be eligible to purchase, as of your projected date of retirement (for example, 10 years and 2 months):
+      <li>Select your <strong>estimated total number of <a href="https://www.mass.gov/service-details/creditable-service-for-retirement-msrb" target="_blank">years of creditable service</a></strong>, including any purchased service or may be eligible to purchase, as of your projected date of retirement (for example, 10 years and 2 months):
         <select title="Select your estimated year of services" name="YRofServices" id="YRofServices" disabled onChange="validateYRofServices(this, militaryveteran.value, yrserMM.value)" size="1">
           <option value="10" selected>10 years</option>
           <option value="11">11 years</option>
@@ -531,8 +531,8 @@ Month
         <input title="Estimated Option A monthly allowance" name="MonthlyBenefit" type="text" id="MonthlyBenefit" size="15" maxlength="15" align="right" readonly disabled>
        </li>
     <!-- Option A3.-->
-      <li>§ Beneficiary Annual Allowance: N/A</li>
-      <li>§ Beneficiary Monthly Allowance: N/A</li>
+      <li>* Beneficiary Annual Allowance: N/A</li>
+      <li>* Beneficiary Monthly Allowance: N/A</li>
     </ol>
 <!-- Option B. -->
   <h5>Option B. (Protects your annuity)</h5>
@@ -548,10 +548,10 @@ Month
         <input title="Estimated Option B monthly allowance" name="txtOptionBmonthly" type="text" id="txtOptionBmonthly" size="15" maxlength="15" align="right" readonly disabled>
       </li>
     <!-- Option B3.-->
-      <li>§ Beneficiary Annual Allowance: Balance Annuity Reserve Account, if any
+      <li>* Beneficiary Annual Allowance: Balance Annuity Reserve Account, if any
       </li>
     <!-- Option B4.-->
-      <li>§ Beneficiary Monthly Allowance: Balance Annuity Reserve Account, if any</li>
+      <li>* Beneficiary Monthly Allowance: Balance Annuity Reserve Account, if any</li>
     </ol>
     <!-- Option C -->
     <h5>Option C. (Joint survivor allowance)</h5>
@@ -570,21 +570,21 @@ Month
         <input title="Estimated Option C monthly allowance" type="text" name="myResultOptionCmonthly" id="myResultOptionCmonthly" onClick="computeForm(this)" size="15" maxlength="15" align="right" readonly disabled>
       </li><br />
     <!-- Option C3. -->
-      <li>§ Beneficiary Annual Allowance: &nbsp;
+      <li>* Beneficiary Annual Allowance: &nbsp;
         <input title="Two thirds of estimated Option C annual allowance" type="text" name="myResultOptionCTwoThirdYearly" id="myResultOptionCTwoThirdYearly" onClick="computeForm(this)" size="15" maxlength="15" align="right" readonly disabled>
         <input title="Beneficiary's age year text" type="hidden" id="yaBenydispay" name="yaBenydispay" onClick="computeForm(this)" size="4" maxlength="4" readonly align="right">
         <input title="Beneficiary's age text" type="hidden" name="OptCbenfAge" id="OptCbenfAge" onClick="computeForm(this)" size="10" maxlength="10" align="right" readonly>
         <input title="Beneficiary's age in month text" type="hidden" id="maBenydisplay" name="maBenydisplay" onClick="computeForm(this)" size="3" maxlength="2" readonly align="right">
       </li><br />
     <!-- Option C4. -->
-      <li>§ Beneficiary Monthly Allowance:
+      <li>* Beneficiary Monthly Allowance:
         <input title="Two thirds of estimated Option C monthly allowance" type="text" name="myResultOptionCTwoThirdMonthly" id="myResultOptionCTwoThirdMonthly" onClick="computeForm(this)" size="15" maxlength="15" align="right" readonly disabled>
 	  </li>
     </ol>
   <p class="disclaimer-tagline">SERVE&nbsp;&nbsp;&loz;&nbsp;&nbsp;CONTRIBUTE&nbsp;&nbsp;&loz;&nbsp;&nbsp;RETIRE</p>
     <p class="disclaimer">Pension reform legislation signed into law in November 2011 included changes to retirement allowance calculations. This included separate calculations for members entering service BEFORE April 2, 2012 and members entering service ON OR AFTER April 2, 2012.<br />
   <br />If you are within 120 days to your retirement date, contact the State Board of Retirement to speak with one of our retirement counselors and start planning your retirement. The State Board of Retirement strongly recommends that you plan your retirement and that you file at least 30 days in advance of leaving your job. Certain retirement options will not be available to you once you stop working. To contact the State Retirement Board call 617-367-7770 (Boston Office), 413-730-6135 (Springfield Office) or 800-392-6014 (in MA only). Additionally, you can visit the retirement board during its walk-in hours, Monday-Friday, 10am-3pm. Please note, the Board does not make appointments. Thank you</p>
-    <p class="disclaimer"> §Beneficiary Allowance payable only upon death of retiree. If beneficiary predeceases retiree with option C, retiree&rsquo;s pension amount will be increased to option A. </p>
+    <p class="disclaimer"> *Beneficiary Allowance payable only upon death of retiree. If beneficiary predeceases retiree with option C, retiree&rsquo;s pension amount will be increased to option A. </p>
   <!--</nav>-->
   <!--Estimator codes ends-->
 </form>
