@@ -1942,9 +1942,10 @@ function computeForm(form) {
 		//var d1servicedate = yssd.trim() + "-" + mssd.trim() + "-" + dssd.trim().toString(); //YYYY-MM-DD
 		var d1servicedate =  mssd.trim() + "/" + dssd.trim() + "/" + yssd.trim(); //var d = new Date("02/07/2011"); // "mm/dd/yyyy" 
 		//var d1servicedate = "02/07/2011"; MM/DD/YYYY
-		///alert("<p>0. Enter service start date: d1 " + d1 + " MM/DD/YYYY " + "</p>"); //Enter Service Start date
+		//alert("<p>1945. Enter service start date: d1servicedate " + d1servicedate + " MM/DD/YYYY " + "</p>"); //Enter Service Start date
 		
 		var enterservicedate = new Date(d1servicedate);
+		//alert("1948 enterservicedate:" + enterservicedate); //8/21/2018
 		//enterservicedate = enterservicedate.toLocaleDateString();
 		//var today = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() ));
 		//enterservicedate = new Date(enterservicedate);
@@ -1952,13 +1953,29 @@ function computeForm(form) {
 		var newlawchangedate = new Date(d2newlawdate);
 		///document.write("<p>2a. Law change date(4/2/2012): newlawchangedate: " + newlawchangedate + " MM/DD/YYYY " + "</p>");
 		///alert("<p>2a. Law change date(4/2/2012): newlawchangedate: " + newlawchangedate + " MM/DD/YYYY " + "</p>"); //Enter Service Start date
-
+		//DOB
 		var d3dob =  mb.trim() + "/" + db.trim() + "/" + yb.trim(); //var d = new Date("02/07/2011"); // "mm/dd/yyyy" 
 		var dobdate = new Date(d3dob);//day of birth 
-
+		//alert("1958 d3dob:" + d3dob); //8/21/2018
+		//alert("1959 dobdate:" + dobdate); //8/21/2018
+		//3)Projected Retirement date
+		//alert("1937 MM/DD/YYYY mp" + mp + "dp" + dp + "yp" + yp);
+		var d4projecteddate = mp.trim() + "/" + dp.trim() + "/" + yp.trim();
+		var newd4projecteddate = new Date(d4projecteddate);//day of birth
+		//alert("1963 d4projecteddate:" + d4projecteddate); //8/21/2018
+		//alert("1964 newd4projecteddate:" + newd4projecteddate); //8/21/2018
 		var boolean1 = Boolean(enterservicedate < newlawchangedate);   //if true then use the 1st set of the calculator
+		//alert("1963 boolean1:" + boolean1); //8/21/2018
 		var boolean2 = Boolean(enterservicedate >= newlawchangedate);  //if true then use the 2nd set of the calculator
 		var boolean3 = Boolean(enterservicedate <= dobdate);   //if true then use the 1st set of the calculator
+		var boolean4 = Boolean(enterservicedate >= newd4projecteddate); //if true then will alert("Note: Your projected date of retirement must be greater than your service start date. Please correct the projected date of retirement to contine. ");
+		
+		if ((enterservicedate >= newd4projecteddate)) {
+			//if (((enterservicedate.getDate() != "") && (newd4projecteddate.getDate() != ""))&&( boolean4 = true)){
+			 //alert("1973 enterservicedate >= newd4projecteddate") + "enterservicedate:" + enterservicedate + "newd4projecteddate:" + newd4projecteddate; //8/21/2018
+			 alert("Note: Your projected date of retirement must be greater than your service start date. Please correct the projected date of retirement to continue. ");
+			 field.focus();
+			}
 		
 		//if (boolean3 == true){
 		//	alert("1873 Sorry, Enter Serviced ate date is less then birth can not be less than the");
