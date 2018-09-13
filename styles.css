@@ -25,12 +25,12 @@ hr {
 	}
 	
 	#checkboxAgree {
-	vertical-align: baseline;
+	vertical-align: top;
 	}
 	
 	.checkbox, .checkbox strong, .radiobutton {
-		display:inline-block;
-		vertical-align:top;
+	display: inline-block;
+	vertical-align: top;
 	}
 	
 	li {
