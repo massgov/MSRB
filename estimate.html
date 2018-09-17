@@ -11,6 +11,23 @@
 
 <script src="https://s3.amazonaws.com/mayflower.digital.mass.gov/assets/js/vendor/modernizr.js"></script> 
 <script language="JavaScript" type="text/javascript" src="pensionjscript-before-onandafter-04022012.js"></script>
+<script>
+function printIFrameContent()
+{      
+  var ua = window.navigator.userAgent;
+  var msie = ua.indexOf ("MSIE ");
+  var iframe = document.getElementById("testFrame");
+  try
+	{
+		iframe = document.getElementById('testFrame');
+		iframe.textContent.document.execCommand('print', false, null);
+	}
+	catch(e)
+	{
+		window.print();
+	}  
+}
+</script>
 
  </head> 
    <body>    
@@ -592,8 +609,7 @@ Month
   <!--</nav>-->
   <!--Estimator codes ends-->
 </form>
-
-
+<p align="center"><input type="button" onclick="printIFrameContent()" value="Print"/></p>
  <!--Mayflower assets --> 
 
      <script src="https://s3.amazonaws.com/mayflower.digital.mass.gov/assets/js/vendor-generated.js"></script> 
