@@ -17,15 +17,14 @@ function printIFrameContent()
   var ua = window.navigator.userAgent;
   var msie = ua.indexOf ("MSIE ");
   var iframe = document.getElementById("testFrame");
-  try
-	{
-		iframe = document.getElementById('testFrame');
-		iframe.textContent.document.execCommand('print', false, null);
-	}
-	catch(e)
-	{
-		window.print();
-	}  
+
+  if (msie > 0) {
+      iframe.textContent.document.execCommand('print', false, null);
+	  
+  } else {
+	  iframe.textContent.focus();
+      window.print();
+  }	
 }
 </script>
 
