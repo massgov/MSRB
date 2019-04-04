@@ -37,7 +37,6 @@
 	</ul>
   <p class="style11"><strong>Acknowledgment: Please Read and Agree Before Continuing</strong></p>
 	<p class="style11"><em>I understand that the information and/or calculations displayed on this site do not necessarily reflect the actual amount of my retirement allowance. The results provided by this calculator are approximations and should not be considered as the final determination of my retirement benefit. They should not be relied upon for planning purposes.</em></p>
-   
   <p class="checkbox">&nbsp;&nbsp;<input type="checkbox" id="checkboxAgree" name="checkboxAgree" onClick="validateChkBox(this)"><strong>&nbsp;&nbsp;I agree; continue filling out form</strong></p>
   <h4 class="ma__comp-heading">Basic Information</h4>
 	<p class="style11">* = required field</p>
@@ -448,9 +447,9 @@ Month
             <option value="89">89 years old</option>
             <option value="90">90+ years old</option>
           </select>
-          <input type="hidden" size="4" id="ya" name="ya" onClick="computeForm(this)" align="right" readonly>
-          <input type="hidden" size="3" id="ma" name="ma" onClick="computeForm(this)" align="right" readonly>
-          <input type="hidden" size="2" id="da" name="da" onClick="computeForm(this)" align="right" readonly>
+          <input type="TEXT" size="4" id="ya" name="ya" onClick="computeForm(this)" align="right" readonly>
+          <input type="TEXT" size="3" id="ma" name="ma" onClick="computeForm(this)" align="right" readonly>
+          <input type="TEXT" size="2" id="da" name="da" onClick="computeForm(this)" align="right" readonly>
           and
 <select title="Select your beneficiary's month of birth" id="BenefAgeMM" name="BenefAgeMM" disabled onChange="computeForm(this)">
             <option value="0" selected>0 months</option>
@@ -466,35 +465,35 @@ Month
             <option value="10">10 months</option>
             <option value="11">11 months</option>
         </select>
-          <input type="hidden" size="10"  maxlength="4" id="yaBeny" name="yaBeny" onClick="computeForm(this)" align="right" readonly>
-          <input type="hidden" size="10" maxlength="3" id="maBeny" name="maBeny" onClick="computeForm(this)" align="right" readonly>
-          <input type="hidden" size="10" maxlength="2" id="daBeny" name="daBeny" onClick="computeForm(this)" align="right" readonly>
+          <input type="TEXT" size="10"  maxlength="4" id="yaBeny" name="yaBeny" onClick="computeForm(this)" align="right" readonly>
+          <input type="TEXT" size="10" maxlength="3" id="maBeny" name="maBeny" onClick="computeForm(this)" align="right" readonly>
+          <input type="TEXT" size="10" maxlength="2" id="daBeny" name="daBeny" onClick="computeForm(this)" align="right" readonly>
       </li>
       <br />
         <input type="button" value="Compute" onClick="computeForm(this)">
         <input type="reset" value="Reset">        
     </ol>
 <p id="displayreminder"></p>
-<input title="reminder" name="reminder" type="hidden" id="reminder" size="10" maxlength="10" align="right" readonly>
-<input title="vartrueorfalse" name="vartrueorfalse" type="hidden" id="vartrueorfalse" size="10" maxlength="10" align="right" readonly>
-  <input title="Service start date" name="enterservicedateddisplayonly" type="hidden" id="enterservicedateddisplayonly" size="10" maxlength="10" align="right" readonly>
+<input title="reminder" name="reminder" type="TEXT" id="reminder" size="10" maxlength="10" align="right" readonly>
+<input title="vartrueorfalse" name="vartrueorfalse" type="TEXT" id="vartrueorfalse" size="10" maxlength="10" align="right" readonly>
+  <input title="Service start date" name="enterservicedateddisplayonly" type="TEXT" id="enterservicedateddisplayonly" size="10" maxlength="10" align="right" readonly>
     <ol>
     <br />
     <!-- B1 -->
       <li>
         Age at retirement:          
           <input title="Age at retirement" type="text" name="yaAdisplayonly" id="yaAdisplayonly" size="10" maxlength="10" align="right" readonly disabled>
-          <input title="Group member text" name="grpmember" type="hidden" id="grpmember" size="10" maxlength="10" align="right" readonly>
-<input title="Age for calculation for Option A text" type="hidden" name="yaA" id="yaA" size="15" maxlength="10" align="right" readonly>
-          <input title="Age for calculation for Option C text" type="hidden" name="yaC6690"  id="yaC6690" size="15" maxlength="10" align="right" readonly>
-          <input title="Option A Age factor text" name="AgeFactor" type="hidden" id="AgeFactor" size="10" maxlength="10" align="right" readonly>
+          <input title="Group member text" name="grpmember" type="TEXT" id="grpmember" size="10" maxlength="10" align="right" readonly>
+<input title="Age for calculation for Option A text" type="TEXT" name="yaA" id="yaA" size="15" maxlength="10" align="right" readonly>
+          <input title="Age for calculation for Option C text" type="TEXT" name="yaC6690"  id="yaC6690" size="15" maxlength="10" align="right" readonly>
+          <input title="Option A Age factor text" name="AgeFactor" type="TEXT" id="AgeFactor" size="10" maxlength="10" align="right" readonly>
       </li><br />
     <!-- B2 -->
       <li>
         Years of Creditable Service display:
           <input title="Year of creditable service" name="OpAyaservicedisplay" type="text" id="OpAyaservicedisplay" size="10" maxlength="10" align="right" readonly disabled>
-          <input title="Year of creditable service and veterant bonus text" name="OpAyaservice" type="hidden" id="OpAyaservice" size="15" maxlength="10" align="right" readonly >
-          <input title="Year of creditable service and veterant calculation text" name="OpAyaserviceVeteran" type="hidden" id="OpAyaserviceVeteran" size="15" maxlength="10" align="right" readonly >        
+          <input title="Year of creditable service and veterant bonus text" name="OpAyaservice" type="TEXT" id="OpAyaservice" size="15" maxlength="10" align="right" readonly >
+          <input title="Year of creditable service and veterant calculation text" name="OpAyaserviceVeteran" type="TEXT" id="OpAyaserviceVeteran" size="15" maxlength="10" align="right" readonly >        
       </li><br />
      <!-- B3.-->
       <li>
@@ -510,7 +509,7 @@ Month
       <!-- B5.-->      
         Veteran’s Bonus:
           <input title="Estimated veteran benefits" name="Aveteranbenf" type="text" id="Aveteranbenf" size="13" maxlength="13" align="right" readonly disabled>
-          <input title="Estimated Option A annual allowance before veteran's benefit text" name="AmountOptionAbeforeVeteranBenf" type="hidden" id="AmountOptionAbeforeVeteranBenf" size="15" maxlength="13" align="right" readonly>
+          <input title="Estimated Option A annual allowance before veteran's benefit text" name="AmountOptionAbeforeVeteranBenf" type="TEXT" id="AmountOptionAbeforeVeteranBenf" size="15" maxlength="13" align="right" readonly>
 		</li>
     </ol>
     <!-- Results RETIREMENT ESTIMATES: -->
@@ -539,8 +538,8 @@ Month
     <!-- Option B1.-->
       <li>Annual Allowance: &nbsp;&nbsp;
         <input title="Estimated Option B annual allowance" name="txtOptionB" type="text" id="txtOptionB" size="15" maxlength="15" align="right" readonly disabled>
-        <input title="Estimated Option B annual allowance before veteran benefit text" name="txtOptionBbeforeVeteranBenf" type="hidden" id="txtOptionBbeforeVeteranBenf" size="15" maxlength="15" align="right" readonly>
-        <input title="Estimated Option B annual allowance before veteran benefit percentage" name="txtOptionBPercentage" type="hidden" id="txtOptionBPercentage" size="15" maxlength="15" align="right" readonly>
+        <input title="Estimated Option B annual allowance before veteran benefit text" name="txtOptionBbeforeVeteranBenf" type="TEXT" id="txtOptionBbeforeVeteranBenf" size="15" maxlength="15" align="right" readonly>
+        <input title="Estimated Option B annual allowance before veteran benefit percentage" name="txtOptionBPercentage" type="TEXT" id="txtOptionBPercentage" size="15" maxlength="15" align="right" readonly>
       </li><br />
     <!-- Option B2.-->
       <li>Monthly Allowance:
@@ -558,11 +557,11 @@ Month
     <!-- Option C1. -->    
       <li>Annual Allowance: &nbsp;&nbsp;
         <input title="Estimated Option C annual allowance" type="text" name="myResultOptionC" id="myResultOptionC" onClick="computeForm(this); showInput();" size="15" maxlength="15" align="right" readonly disabled>
-        <input title="Age for calculation Option C text" name="yaCfromYadisplay" type="hidden" id="yaCfromYadisplay" size="15" maxlength="15" align="right" readonly>
-        <input title="Age for calculation Option C text" name="yaC" type="hidden" id="yaC" size="15" maxlength="15" align="right" readonly>
-        <input title="Estimated Option C annual allowance text" name="AmountOptionAC" type="hidden" id="AmountOptionAC" size="15" maxlength="15" align="right" readonly>
-        <input title="Estimated Option C annual allowance before veteran benefit text" name="AmountOptionACbeforeVeteranBenf" type="hidden" id="AmountOptionACbeforeVeteranBenf" size="15" maxlength="15" align="right" readonly>
-        <input title="Estimated Option C factor percent in decimal text" type="hidden" name="myResultOptionCfator" id="myResultOptionCfator" size="15" maxlength="15" align="right" readonly>
+        <input title="Age for calculation Option C text" name="yaCfromYadisplay" type="TEXT" id="yaCfromYadisplay" size="15" maxlength="15" align="right" readonly>
+        <input title="Age for calculation Option C text" name="yaC" type="TEXT" id="yaC" size="15" maxlength="15" align="right" readonly>
+        <input title="Estimated Option C annual allowance text" name="AmountOptionAC" type="TEXT" id="AmountOptionAC" size="15" maxlength="15" align="right" readonly>
+        <input title="Estimated Option C annual allowance before veteran benefit text" name="AmountOptionACbeforeVeteranBenf" type="TEXT" id="AmountOptionACbeforeVeteranBenf" size="15" maxlength="15" align="right" readonly>
+        <input title="Estimated Option C factor percent in decimal text" type="TEXT" name="myResultOptionCfator" id="myResultOptionCfator" size="15" maxlength="15" align="right" readonly>
       </li><br />
     <!-- Option C2. -->
       <li>Monthly Allowance:
@@ -571,9 +570,9 @@ Month
     <!-- Option C3. -->
       <li>* Beneficiary Annual Allowance: &nbsp;
         <input title="Two thirds of estimated Option C annual allowance" type="text" name="myResultOptionCTwoThirdYearly" id="myResultOptionCTwoThirdYearly" onClick="computeForm(this)" size="15" maxlength="15" align="right" readonly disabled>
-        <input title="Beneficiary's age year text" type="hidden" id="yaBenydispay" name="yaBenydispay" onClick="computeForm(this)" size="4" maxlength="4" readonly align="right">
-        <input title="Beneficiary's age text" type="hidden" name="OptCbenfAge" id="OptCbenfAge" onClick="computeForm(this)" size="10" maxlength="10" align="right" readonly>
-        <input title="Beneficiary's age in month text" type="hidden" id="maBenydisplay" name="maBenydisplay" onClick="computeForm(this)" size="3" maxlength="2" readonly align="right">
+        <input title="Beneficiary's age year text" type="TEXT" id="yaBenydispay" name="yaBenydispay" onClick="computeForm(this)" size="4" maxlength="4" readonly align="right">
+        <input title="Beneficiary's age text" type="TEXT" name="OptCbenfAge" id="OptCbenfAge" onClick="computeForm(this)" size="10" maxlength="10" align="right" readonly>
+        <input title="Beneficiary's age in month text" type="TEXT" id="maBenydisplay" name="maBenydisplay" onClick="computeForm(this)" size="3" maxlength="2" readonly align="right">
       </li><br />
     <!-- Option C4. -->
       <li>* Beneficiary Monthly Allowance:
@@ -581,7 +580,7 @@ Month
 	  </li>
     </ol>
   <p class="disclaimer-tagline">SERVE&nbsp;&nbsp;&loz;&nbsp;&nbsp;CONTRIBUTE&nbsp;&nbsp;&loz;&nbsp;&nbsp;RETIRE</p>
-  <p class="disclaimer">Pension reform legislation signed into law in November 2011 included changes to retirement allowance calculations. This included separate calculations for members entering service BEFORE April 2, 2012 and members entering service ON OR AFTER April 2, 2012.<br />
+    <p class="disclaimer">Pension reform legislation signed into law in November 2011 included changes to retirement allowance calculations. This included separate calculations for members entering service BEFORE April 2, 2012 and members entering service ON OR AFTER April 2, 2012.<br />
   <br />
   If you are within 120 days of your retirement date, or have already separated from employment, contact the State Board of Retirement to speak with one of our retirement counselors and start planning your retirement. The State Board of Retirement strongly recommends that you plan your retirement and that you file at least 30 days in advance of leaving your job. Certain retirement options will not be available to you once you stop working. To contact the State Retirement Board call 617-367-7770 (Boston Office), 413-730-6135 (Springfield Office) or 800-392-6014 (in MA only).  You may also reach us at <a href="mailto:srb@tre.state.ma.us">srb@tre.state.ma.us</a>. Additionally, you can visit the Retirement Board during our walk-in hours, Monday-Friday, 10am-3pm. Please note, the Board does not make appointments. Thank you.</p>
     <p class="disclaimer"> *Beneficiary Allowance payable only upon death of retiree. If beneficiary predeceases retiree with option C, retiree&rsquo;s pension amount will be increased to option A. </p>
