@@ -25,12 +25,12 @@ hr {
 	}
 	
 	#checkboxAgree {
-	vertical-align: top;
+	vertical-align: baseline;
 	}
 	
 	.checkbox, .checkbox strong, .radiobutton {
-	display: inline-block;
-	vertical-align: top;
+		display:inline-block;
+		vertical-align:top;
 	}
 	
 	li {
@@ -73,4 +73,14 @@ hr {
 	width: 25%;
 	padding:.5em;
 	color:red;
+}
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  padding: 10px;
 }
